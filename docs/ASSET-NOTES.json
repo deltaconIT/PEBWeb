@@ -1,0 +1,25 @@
+{
+  "source": "https://seico.vn",
+  "unavailable_resources": [
+    {
+      "asset": "https://seico.vn/assets/frontend/libs/OwlCarousel/owl.video.play.png",
+      "error": "404 Client Error: Not Found for url: https://seico.vn/assets/frontend/libs/OwlCarousel/owl.video.play.png"
+    },
+    {
+      "asset": "https://seico.vn/libs/flexslider/images/slider-loader.gif",
+      "error": "404 Client Error: Not Found for url: https://seico.vn/libs/flexslider/images/slider-loader.gif"
+    },
+    {
+      "asset": "https://seico.vn/public/uploads/images/Anh-bai-viet-dong/Tintuc-anpham/An-pham/2021/2021_%20Brochure%20t%C3%B4n%20v%C3%A0%20deck.pdf",
+      "error": "403 Client Error: Forbidden for url: https://seico.vn/public/uploads/images/Anh-bai-viet-dong/Tintuc-anpham/An-pham/2021/2021_%20B"
+    },
+    {
+      "asset": "https://seico.vn/public/uploads/images/Anh-bai-viet-dong/Tintuc-anpham/An-pham/2021/SEICO_Profile%20ti%E1%BA%BFng%20Trung%20final%2013_3.pdf",
+      "error": "403 Client Error: Forbidden for url: https://seico.vn/public/uploads/images/Anh-bai-viet-dong/Tintuc-anpham/An-pham/2021/SEICO_Pro"
+    },
+    {
+      "asset": "https://seico.vn/public/uploads/images/Anh-bai-viet-dong/Tintuc-anpham/An-pham/2021/deck%20s%E1%BB%ADa%20VIE%2027-5_compressed.pdf",
+      "error": "403 Client Error: Forbidden for url: https://seico.vn/public/uploads/images/Anh-bai-viet-dong/Tintuc-anpham/An-pham/2021/deck%20s%"
+    }
+  ]
+}

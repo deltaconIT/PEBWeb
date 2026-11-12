@@ -1,0 +1,515 @@
+/*css style page commons */
+
+.sei_intro input[type="image"] {
+	width: 100%;
+    height: 100% !important;
+    border: none;
+	max-width: 100%;
+}
+
+.title-page {
+
+	background: #f5f5f5;
+
+	width: 100%;
+
+}
+
+.title-page h1,
+.title-page h2 {
+
+	font-size: 30px;
+
+	margin: 0;
+
+	padding: 30px 0;
+
+	font-weight: bold;
+
+}
+
+#breadcrumb {
+
+	background: #fff;
+
+	border-top: 1px solid #ddd;
+
+	border-bottom: 1px solid #ddd;
+
+}
+
+.breadcrumb {
+
+	margin-bottom: 0;
+
+	background: #fff;
+
+}
+
+.breadcrumb li a {
+
+	color: #333;
+
+}
+
+.breadcrumb li.active {
+
+	color: #204279;
+
+}
+
+.cl-1 {
+
+	color: #204279;
+
+}
+
+/*css style introduce*/
+
+.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
+
+	background: none;
+
+}
+
+ul.page-contact {
+
+	margin: 0;
+
+	padding: 0;
+
+	margin-bottom: 30px;
+
+}
+
+ul.page-contact li {
+
+	content: " ";
+
+	display: table;
+
+	list-style: none;
+
+	margin-bottom: 15px;
+
+    padding: 5px;
+
+    background: #f5f5f5;
+
+    width: 100%;
+
+    position: relative;
+
+}
+
+ul.page-contact li i {
+
+    font-size: 16px;
+
+    width: 10%;
+
+    text-align: center;
+
+}
+
+ul.page-contact li span {
+
+	width: 90%;
+
+	float: right;
+
+	border-left: 1px solid #ccc;
+
+	padding-left: 7px;
+
+}
+
+a.dowload {
+
+	margin: 10px 0px 0px 0;
+
+	display: block;
+
+	background: #204279;
+
+    color: #fff;
+
+    max-width: 240px;
+
+    padding: 9px 12px;
+
+    border-radius: 4px;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+
+    overflow: hidden;
+
+    transition: all .5s ease;
+
+}
+
+a.dowload:hover {
+
+	color:  #fff000;
+
+	transition: all .5s ease;
+
+}
+
+a.dowload i {
+
+	padding-right: 7px;
+
+    border-right: 1px solid #fff;
+
+    margin-right: 7px;
+
+}
+
+.sei_intro {
+
+	padding: 30px 0 50px 30px;
+
+	border-left: 1px solid #ccc;
+
+	margin-left: -30px;
+
+	min-height: 650px;
+
+}
+
+.sei_intro img {
+
+	max-width: 100%;
+	height: auto !important;
+
+}
+
+/*css style project*/
+
+.sei_proj {
+
+	padding: 30px 0px 50px 0;
+
+}
+
+.sei_proj img {
+
+    width: 100%;
+
+    cursor: pointer;
+
+    
+
+}
+
+.sei_proj .image_full {
+
+    margin-bottom: 20px;
+
+    border: 1px solid #bbb;
+
+}
+
+.sei_proj .list-slide {
+
+    padding:0 40px;
+
+    margin-bottom: 40px;
+
+}
+
+.sei_proj .list-slide .owl-carousel .owl-drag .owl-item {
+
+    padding:2px;
+
+    border: 1px solid #bbb;
+
+}
+
+.sei_proj .owl-theme .owl-nav [class*=owl-] {
+
+    color: #204279;
+
+    margin: 0 !important;
+
+    cursor: pointer;
+
+    position: absolute !important;
+
+    width: 30px;
+
+    height: 30px;
+
+    text-align: center;
+
+    background: #fff;
+
+    font-size: 20px;
+
+    border-radius: 50%;
+
+    border:1px solid #204279;
+
+}
+
+.sei_proj .owl-theme .owl-nav [class*=owl-] {
+
+    top: 40% !important;
+
+}
+
+.sei_proj .project {
+
+	width: 100%;
+
+}
+
+.sei_proj .project>tbody>tr>td {
+
+	border-bottom: 1px solid #bbb;
+
+	padding: 10px 0;
+
+	font-size: 14px;
+
+}
+
+.sei_proj .project>tbody>tr>td:first-child {
+
+	font-weight: bold;
+
+}
+
+.sei_proj .project>tbody>tr>td:last-child {
+
+	color: #204279;
+
+}
+
+.sei_proj .owl-theme .owl-nav .owl-prev {
+
+    left: -15px !important;
+
+}
+
+.sei_proj .owl-theme .owl-nav .owl-next {
+
+    right: -15px !important;
+
+}
+
+.title_proj {
+
+	font-size: 16px;
+
+	font-weight: bold;
+
+	text-transform: uppercase;
+
+	margin-bottom: 20px;
+
+}
+
+.title_proj:before {
+
+	content: "";
+
+    width: 50px;
+
+    height: 3px;
+
+    background: #204279;
+
+    z-index: 999;
+
+    position: absolute;
+
+    margin-top: 20px;
+
+}
+
+/*css style publications*/
+
+.publications .owl-theme .owl-nav [class*=owl-] {
+
+	color: #333;
+
+    font-size: 30px;
+
+    top: 30%;
+
+    display: inline-block;
+
+    cursor: pointer;
+
+    position: absolute;
+
+}
+
+.publications .owl-theme .owl-nav .owl-prev {
+
+	left: -20px;
+
+}
+
+.publications .owl-theme .owl-nav .owl-next {
+
+	right: -20px;
+
+}
+
+.publications .owl-carousel .owl-item {
+
+	padding: 2px;
+
+	margin-bottom: 30px;
+
+}
+
+/*css style contact*/
+
+.contact {
+
+	padding: 30px 0px 50px 0;
+
+}
+
+.contact .btn {
+
+    color: #fff;
+
+    padding: 7px 12px;
+
+    border-radius: 4px;
+
+    background: #204279;
+
+    transition: all .5s ease;
+
+    border: 1px solid #204279;
+
+}
+
+.contact .btn:hover {
+
+    color: #204279;
+
+    background: #fff;
+
+    transition: all .5s ease;
+
+}
+
+/*css style reponsive page*/
+
+@media (max-width: 425px) {
+  .title-page h1 {
+  		font-size: 18px;
+  	}
+}
+
+/* Custom Breadcrumbs style overrides */
+
+.breadcrumb li, .breadcrumb li a {
+	text-transform: uppercase !important;
+}
+
+.breadcrumb > li + li:before {
+	content: "> \00a0" !important;
+	color: #ccc !important;
+}
+
+/* TABLE OF CONTENTS (TOC) STYLING */
+
+.toc-container {
+    background-color: #f7f9fc;
+    border: 1px solid #e1e8ed;
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin: 25px 0;
+    max-width: 100%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.toc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e1e8ed;
+    padding-bottom: 10px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.toc-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #204279;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.toc-title i {
+    font-size: 18px;
+}
+
+.toc-toggle {
+    font-size: 13px;
+    color: #204279;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.toc-toggle:hover {
+    text-decoration: underline;
+}
+
+.toc-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.toc-item {
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+.toc-item a {
+    color: #444;
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+    display: inline-block;
+}
+
+.toc-item a:hover {
+    color: #204279;
+    padding-left: 5px;
+    text-decoration: none;
+}
+
+/* Hierarchy Styling */
+
+.toc-h2 {
+    font-weight: 600;
+}
+
+.toc-h3 {
+    padding-left: 20px;
+    font-size: 14.5px;
+}
+
+.toc-h4 {
+    padding-left: 40px;
+    font-size: 14px;
+    color: #666;
+}
