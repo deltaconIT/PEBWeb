@@ -39,7 +39,7 @@ window.SEICO_PROJECT_DATA = {
     {"id": 26, "name": "Hospitals"},
     {"id": 27, "name": "Transport, bridges and roads"},
     {"id": 112, "name": "Industrial / Transport, warehousing"},
-    {"id": 118, "name": "Industrial / Plastics, moulding"},
+    {"id": 118, "name": "Industrial / Plastics, molding"},
     {"id": 128, "name": "Industrial / glass, lenses, electronic glass"},
     {"id": 133, "name": "Industrial / Pharmaceuticals"}
   ],

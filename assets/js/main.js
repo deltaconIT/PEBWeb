@@ -129,7 +129,7 @@
     {"path": "/philippine-partners/philippine-partners.html", "title": "Philippine Partners | PEB Philippines", "href": "philippine-partners/philippine-partners.html"},
     {"path": "/products-services/accessory-products/industrial-paint.html", "title": "Industrial paint | PEB Philippines", "href": "products-services/accessory-products/industrial-paint.html"},
     {"path": "/products-services/light-buildings.html", "title": "Light buildings | PEB Philippines", "href": "products-services/light-buildings.html"},
-    {"path": "/shared/document-template.html", "title": "Product catalogue | PEB Philippines", "href": "shared/document-template.html"},
+    {"path": "/shared/document-template.html", "title": "Product catalog | PEB Philippines", "href": "shared/document-template.html"},
     // {"path": "/archive/hidden-pages/news-publications/articles/industrial-building-steel-frame-design-4340.html", "title": "Industrial building steel frame design: process and common frame types 2026 | PEB Philippines", "href": "archive/hidden-pages/news-publications/articles/industrial-building-steel-frame-design-4340.html"},
     // {"path": "/archive/hidden-pages/news-publications/articles/pre-engineered-steel-building-design-4338.html", "title": "Pre-engineered steel building design | PEB Philippines", "href": "archive/hidden-pages/news-publications/articles/pre-engineered-steel-building-design-4338.html"},
     {"path": "/projects/details/chadwick-international-school-in-vietnam.html", "title": "Chadwick International School in Vietnam | PEB Philippines", "href": "projects/details/chadwick-international-school-in-vietnam.html"}
@@ -861,8 +861,13 @@
         const project = logo.getAttribute("data-project");
         if (modalLink) {
           modalLink.hidden = !project;
-          if (project) modalLink.setAttribute("href", project);
-          else modalLink.removeAttribute("href");
+          if (project) {
+            modalLink.setAttribute("href", project);
+            modalLink.setAttribute("data-lead-label", "the " + img.alt + " project on seico.vn");
+          } else {
+            modalLink.removeAttribute("href");
+            modalLink.removeAttribute("data-lead-label");
+          }
         }
         partnerModal.classList.add("active");
         partnerModal.setAttribute("aria-hidden", "false");
@@ -896,6 +901,8 @@
         openLogo(logo);
       });
       listen(modalClose, "click", closeLogo);
+      // "View this project on seico.vn": close the logo popup; the project details form takes over from here.
+      if (modalLink) listen(modalLink, "click", () => setTimeout(closeLogo, 0));
       listen(partnerModal.querySelector(".partner-modal-backdrop"), "click", closeLogo);
       listen(documentRef, "keydown", (event) => {
         if (event.key === "Escape") closeLogo();
@@ -1223,9 +1230,11 @@
       const box = button.closest("[data-lead-gate-box]");
       if (box) box.hidden = true;
       if (focus) {
-        if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
-        target.focus({ preventScroll: true });
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        // A list that joins its parent grid (display: contents) has no box of its own: use its first card.
+        const anchor = target.getClientRects().length ? target : (target.firstElementChild || target);
+        if (!anchor.hasAttribute("tabindex")) anchor.setAttribute("tabindex", "-1");
+        anchor.focus({ preventScroll: true });
+        anchor.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     };
     if (given()) document.querySelectorAll(GATES).forEach((button) => reveal(button, false));
@@ -1316,12 +1325,16 @@
       opener = link || gate;
       what.textContent = "";
       if (link) {
-        const country = countryOf(link);
+        // A link can name what it opens (data-lead-label, e.g. the Home logo popup's project button);
+        // otherwise the flag or menu text gives the country.
+        const named = link.getAttribute("data-lead-label");
+        const country = named ? "" : countryOf(link);
         pending = { kind: "link", href: link.href };
-        what.append("our projects in ", strong(country));
+        if (named) what.append(strong(named));
+        else what.append("our projects in ", strong(country));
         form.elements.country.value = country;
         form.elements.destination.value = link.href;
-        form.elements.source.value = "seico.vn projects: " + country;
+        form.elements.source.value = "seico.vn projects: " + (named || country);
         foot.textContent = "You will be taken to our projects on seico.vn.";
       } else {
         const label = gate.getAttribute("data-lead-label") || "all our projects";

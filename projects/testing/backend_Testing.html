@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Download / Lead Form</title>
+</head>
+<body>
+
+  <h2>Fill in the form to download</h2>
+
+  <form id="leadForm">
+    <div>
+      <label>Name:</label><br>
+      <input type="text" id="userName" required placeholder="John Doe">
+    </div>
+    <br>
+    <div>
+      <label>Email:</label><br>
+      <input type="email" id="userEmail" required placeholder="john@example.com">
+    </div>
+    <br>
+    <button type="submit" id="submitBtn">Submit & Download</button>
+  </form>
+
+  <script>
+    const form = document.getElementById('leadForm');
+    const submitBtn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      submitBtn.disabled = true;
+      submitBtn.innerText = "Processing...";
+
+      // 1. Replace with your exact formResponse URL
+      const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSceg_tORC20_izpT9wqUH8jkCzoUZZSuwA9wxkwOL52wptk4Q/formResponse';
+
+      // 2. Use URLSearchParams instead of FormData (Fixes the encoding issue)
+      const payload = new URLSearchParams();
+      payload.append('entry.646909513', document.getElementById('userName').value); // Your Name ID
+      payload.append('entry.1340565625', document.getElementById('userEmail').value); // Your Email ID
+
+      // 3. Send using fetch with urlencoded body
+      fetch(googleFormUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: payload.toString()
+      })
+      .then(() => {
+        // --- ACTION ON SUCCESS ---
+        alert('Thank you! Redirecting you now...');
+        
+        // Example 1: Redirect to another page
+        // window.location.href = "https://yourwebsite.com/thank-you.html";
+
+        // Example 2: Trigger a file download
+        const downloadLink = document.createElement('a');
+        downloadLink.href = 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'; // replace with your file URL
+        downloadLink.download = 'presentation.pdf';
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+
+        form.reset();
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Submit & Download";
+      })
+      .catch((error) => {
+        console.error('Submission failed:', error);
+        alert('Something went wrong. Please try again.');
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Submit & Download";
+      });
+    });
+  </script>
+
+</body>
+</html>

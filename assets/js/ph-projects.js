@@ -23,7 +23,7 @@
   if (!data) return;
   var script = document.currentScript;
   var root = script ? script.src.replace(/assets\/js\/ph-projects\.js([?#].*)?$/, "") : "";
-  var FREE_PER_TYPE = 2;          // projects shown on a type page before "See all"
+  var FREE_PER_TYPE = 3;          // projects shown on a type page before "See all" (one full row)
 
   var projects = data.projects;
   var typeById = {};
@@ -199,8 +199,6 @@
     var list = showcaseOrder(ofType(type.id));
     var free = list.slice(0, FREE_PER_TYPE);
     var rest = list.slice(FREE_PER_TYPE);
-    var featured = free.filter(function (p) { return p.featured; });
-    var freeCards = free.filter(function (p) { return !p.featured; });
 
     document.title = type.name + " projects | PEB Philippines";
     if (hero) {
@@ -220,10 +218,13 @@
 
     node.innerHTML = '<div class="hx-head"><div class="hx-head-main"><p class="hx-eyebrow"><span>01</span>' + esc(type.name) + '</p><h2 class="hx-title">' + plural(list.length, "project") + " in the Philippines</h2></div>" +
       '<div class="hx-head-side"><p>' + esc(type.text) + "</p></div></div>" +
-      (featured.length ? '<div class="pj-features pj-features--inline">' + featured.map(featureCard).join("") + "</div>" : "") +
-      (freeCards.length ? '<div class="ph-projects pj-list"><div class="ph-grid">' + freeCards.map(function (p) { return listCard(p, false); }).join("") + "</div></div>" : "") +
-      (rest.length ? gateBox("type-rest", rest.length, list.length, "all " + list.length + " " + type.name.toLowerCase() + " projects") +
-        '<div class="ph-projects pj-list" id="type-rest" hidden><div class="ph-grid">' + rest.map(function (p) { return listCard(p, false); }).join("") + "</div></div>" : "") +
+      // Every project uses the same card in one grid. The locked ones sit in #type-rest inside the same
+      // grid (display: contents once shown), so unlocking fills the rows instead of starting new ones.
+      '<div class="ph-projects pj-list pj-type-list"><div class="ph-grid">' +
+        free.map(function (p) { return listCard(p, false); }).join("") +
+        (rest.length ? '<div class="pj-rest" id="type-rest" hidden>' + rest.map(function (p) { return listCard(p, false); }).join("") + "</div>" : "") +
+      "</div></div>" +
+      (rest.length ? gateBox("type-rest", rest.length, list.length, "all " + list.length + " " + type.name.toLowerCase() + " projects") : "") +
       '<div class="pj-other"><h3 class="hx-subhead">Other project types</h3>' + typeTiles(type.id) + "</div>";
   });
 })();

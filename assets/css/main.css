@@ -2578,14 +2578,14 @@ a.brand-logo:focus {
 
 .vtc-menu-mobile a.logo-x img.brand-logo-img,
 .vtc-small-menu .vtc-small-menu-header .brand-logo-img {
-  width: 150px;
+  width: 200px;   /* desktop is 210px; kept close so the "Powered by SEICO Group" line stays readable */
 }
 
 .vtc-menu-mobile .brand-powered,
 .vtc-small-menu .vtc-small-menu-header .brand-powered {
-  margin-top: 4px;
-  font-size: 8px;
-  letter-spacing: 1.2px;
+  margin-top: 5px;
+  font-size: 9.5px;
+  letter-spacing: 1.5px;
 }
 
 .vtc-small-menu .vtc-small-menu-header .logo-x {
@@ -7609,4 +7609,380 @@ a.brand-logo:focus {
 
 .contact-float-side.cf-drawer.is-open .cf-side-arrow {
   transform: rotate(180deg);
+}
+
+/* Footer: says whose the ISO badges are */
+footer.footer p.footer-iso-note {
+  margin: 8px 0 0;
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  line-height: 1.45 !important;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* Social icons with no account yet (class "follow-soon") are hidden until a link is added.
+   To show one again: give its <a> an href and remove class="follow-soon". */
+ul.follow li:has(> a.follow-soon),
+ul.follow li a.follow-soon {
+  display: none;
+}
+
+/* ---- Philippine Partners, company registrations: SEC, BIR and Customs certificates in three columns ---- */
+.hx .hx-reg-docs {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: auto auto;
+  grid-auto-flow: column;
+  gap: 24px 28px;
+}
+
+.hx .hx-reg-docs + .hx-reg-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 28px;
+  margin-top: 36px;
+}
+
+.hx .hx-reg-docs + .hx-reg-list li {
+  border-top: 1px solid var(--hx-line);
+}
+
+.hx .hx-reg-note {
+  margin-top: 18px;
+}
+
+@media (max-width: 991px) {
+  .hx .hx-reg-docs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+    grid-auto-flow: row;
+  }
+
+  .hx .hx-reg-docs + .hx-reg-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .hx .hx-reg-docs {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.hx .hx-reg-docs .hx-sec-card img {
+  aspect-ratio: 1400 / 1980;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* ---- Products & Services, 04 Why pre-engineered: photos on the benefit cards and the comparison table ---- */
+.hx .hx-benefits--photo .hx-benefit {
+  overflow: hidden;
+}
+
+.hx .hx-benefit-photo {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  margin: -28px -26px 22px;
+  background: var(--hx-alt);
+  cursor: zoom-in;
+}
+
+.hx .hx-benefit-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.hx .hx-benefit-photo:hover img,
+.hx .hx-benefit-photo:focus img {
+  transform: scale(1.04);
+}
+
+.hx .hx-compare {
+  margin: 0 0 40px;
+}
+
+.hx .hx-compare-title {
+  margin: 0 0 16px;
+  color: var(--hx-navy);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.hx .hx-compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--hx-line);
+  background: #ffffff;
+  font-size: 15px;
+}
+
+.hx .hx-compare-table th,
+.hx .hx-compare-table td {
+  padding: 15px 20px;
+  border-bottom: 1px solid var(--hx-line);
+  text-align: left;
+  vertical-align: middle;
+  line-height: 1.5;
+}
+
+.hx .hx-compare-table thead th {
+  background: var(--hx-alt);
+  color: var(--hx-muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.hx .hx-compare-table thead th.is-peb {
+  background: var(--hx-navy);
+  color: #ffffff;
+}
+
+.hx .hx-compare-table tbody th {
+  width: 24%;
+  color: var(--hx-navy);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.hx .hx-compare-table tbody th .fa {
+  width: 22px;
+  margin-right: 10px;
+  color: var(--hx-red);
+  text-align: center;
+}
+
+.hx .hx-compare-table td {
+  width: 38%;
+  color: var(--hx-muted);
+}
+
+.hx .hx-compare-table td.is-peb {
+  background: rgba(32, 66, 121, 0.05);
+  color: var(--hx-ink);
+  font-weight: 600;
+}
+
+.hx .hx-compare-table td.is-peb .fa {
+  margin-right: 10px;
+  color: #1f8a4c;
+}
+
+.hx .hx-compare-table tbody tr:last-child th,
+.hx .hx-compare-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.hx .hx-compare-source {
+  margin: 10px 0 0;
+  color: var(--hx-muted);
+  font-size: 12px;
+}
+
+/* phones: each row becomes a small card */
+@media (max-width: 767px) {
+  .hx .hx-compare-table,
+  .hx .hx-compare-table tbody,
+  .hx .hx-compare-table tr,
+  .hx .hx-compare-table th,
+  .hx .hx-compare-table td {
+    display: block;
+    width: auto;
+  }
+
+  .hx .hx-compare-table thead {
+    display: none;
+  }
+
+  .hx .hx-compare-table tbody tr {
+    border-bottom: 1px solid var(--hx-line);
+  }
+
+  .hx .hx-compare-table tbody th {
+    padding: 14px 16px 6px;
+    border: 0;
+    white-space: normal;
+  }
+
+  .hx .hx-compare-table td {
+    padding: 6px 16px;
+    border: 0;
+  }
+
+  .hx .hx-compare-table td:last-child {
+    padding-bottom: 14px;
+  }
+
+  .hx .hx-compare-table td::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 2px;
+    color: var(--hx-muted);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .hx .hx-compare-table td.is-peb::before {
+    color: var(--hx-blue);
+  }
+}
+
+@media (max-width: 767px) {
+  .hx .hx-compare-table tbody th,
+  .hx .hx-compare-table tbody td {
+    width: auto;
+  }
+}
+
+/* the three notes under the registration certificates sit side by side, so the first one keeps its top spacing too */
+.hx .hx-reg-docs + .hx-reg-list li,
+.hx .hx-reg-docs + .hx-reg-list li:first-child {
+  padding-top: 18px;
+}
+
+/* ---- Project type pages: one grid of identical cards; the unlocked ones join the same rows ---- */
+.hx .pj-rest:not([hidden]) {
+  display: contents;
+}
+
+.hx .pj-type-list + .pj-gate {
+  margin-top: 28px;
+}
+
+.hx .pj-type-list .ph-grid {
+  gap: 24px;
+}
+
+/* ---- Home 05: Philippine partners and SEICO Group's clients ---- */
+.hx .hx-partners-group + .hx-partners-group {
+  margin-top: 56px;
+}
+
+.hx .hx-partners-label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 0 22px;
+  color: var(--hx-navy);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.hx .hx-partners-label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--hx-line);
+}
+
+.hx .hx-ph-partners {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin: 0 0 22px;
+  padding: 0;
+  list-style: none;
+}
+
+.hx .hx-ph-partner {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--hx-line);
+  border-top: 3px solid var(--hx-navy);
+  background: #ffffff;
+}
+
+.hx .hx-ph-partner img {
+  display: block;
+  width: 100%;
+  height: 170px;
+  padding: 18px 40px;
+  object-fit: contain;
+  background: #ffffff;
+  border-bottom: 1px solid var(--hx-line);
+}
+
+.hx .hx-ph-partner > div {
+  padding: 20px 22px 22px;
+}
+
+.hx .hx-ph-partner strong {
+  display: block;
+  color: var(--hx-navy);
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.hx .hx-ph-partner-role {
+  display: inline-block;
+  margin: 6px 0 10px;
+  color: var(--hx-red);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.hx .hx-ph-partner p {
+  margin: 0;
+  color: var(--hx-text);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.hx .hx-partners-note {
+  margin: -8px 0 20px;
+  color: var(--hx-muted);
+  font-size: 14px;
+}
+
+@media (max-width: 991px) {
+  .hx .hx-ph-partners {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hx .hx-ph-partner {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .hx .hx-ph-partner img {
+    flex: 0 0 36%;
+    width: 36%;
+    height: 130px;
+    padding: 14px 18px;
+    border-right: 1px solid var(--hx-line);
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .hx .hx-ph-partner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hx .hx-ph-partner img {
+    width: 100%;
+    height: 140px;
+    border-right: 0;
+    border-bottom: 1px solid var(--hx-line);
+  }
+}
+
+@media (max-width: 480px) {
+  .hx .hx-ph-partner img {
+    flex: none;
+  }
 }
