@@ -33,6 +33,7 @@
     {"path": "/projects/project-types.html", "title": "Project Types | PEB Philippines", "href": "projects/project-types.html"},
     // {"path": "/archive/hidden-pages/news-publications/news-publications.html", "title": "News & publications | PEB Philippines - Pre-engineered steel...", "href": "archive/hidden-pages/news-publications/news-publications.html"},
     {"path": "/contact/contact.html", "title": "Contact | PEB Philippines - Pre-engineered steel buildings & steel structures", "href": "contact/contact.html"},
+    {"path": "/contact/consultation.html", "title": "Request a consultation | PEB Philippines - Pre-engineered steel buildings & steel structures", "href": "contact/consultation.html"},
     // {"path": "/archive/hidden-pages/careers/careers.html", "title": "Careers | PEB Philippines - Pre-engineered steel buildings & steel structures", "href": "archive/hidden-pages/careers/careers.html"},
     // {"path": "/archive/hidden-pages/news-publications/articles/radiant-seico-photo-contest-celebrating-the-women-of-seico-20-10-4358.html", "title": "“RADIANT SEICO” PHOTO CONTEST – CELEBRATING THE WOMEN...", "href": "archive/hidden-pages/news-publications/articles/radiant-seico-photo-contest-celebrating-the-women-of-seico-20-10-4358.html"},
     {"path": "/projects/details/heller-vinfast.html", "title": "Heller-Vinfast | PEB Philippines - Pre-engineered factory construction", "href": "projects/details/heller-vinfast.html"},
@@ -1062,8 +1063,8 @@
     closeSearch();
     const overlay = document.createElement("div");
     overlay.className = "static-search";
-    overlay.style.cssText = "position:fixed;inset:0;z-index:999999;background:rgba(20, 32, 56,.75);display:flex;justify-content:center;align-items:flex-start;padding:12vh 20px 25px";
-    overlay.innerHTML = '<div role="dialog" aria-modal="true" aria-label="Search" style="background:white;width:700px;max-width:100%;max-height:76vh;overflow:auto;padding:30px"><button type="button" aria-label="Close" style="float:right;font-size:28px;border:0;background:none">\xD7</button><h2 style="font-size:22px;color:#204279;margin-top:0">SEARCH</h2><input placeholder="Search..." aria-label="Search pages" style="height:45px;border:1px solid #ddd;padding:10px;width:100%;font-size:16px"><div class="static-search-results" style="margin-top:20px"></div></div>';
+    overlay.style.cssText = "position:fixed;inset:0;z-index:999999;background:rgba(24, 70, 112,.75);display:flex;justify-content:center;align-items:flex-start;padding:12vh 20px 25px";
+    overlay.innerHTML = '<div role="dialog" aria-modal="true" aria-label="Search" style="background:white;width:700px;max-width:100%;max-height:76vh;overflow:auto;padding:30px"><button type="button" aria-label="Close" style="float:right;font-size:28px;border:0;background:none">\xD7</button><h2 style="font-size:22px;color:#2672b0;margin-top:0">SEARCH</h2><input placeholder="Search..." aria-label="Search pages" style="height:45px;border:1px solid #ddd;padding:10px;width:100%;font-size:16px"><div class="static-search-results" style="margin-top:20px"></div></div>';
     const dialog = overlay.firstElementChild;
     overlay.addEventListener("click", closeSearch);
     dialog.addEventListener("click", (event) => event.stopPropagation());
@@ -1079,7 +1080,7 @@
         const anchor = document.createElement("a");
         anchor.href = page.href;
         anchor.textContent = page.title;
-        anchor.style.cssText = "display:block;color:#204279;padding:13px 0;border-bottom:1px solid #eee";
+        anchor.style.cssText = "display:block;color:#2672b0;padding:13px 0;border-bottom:1px solid #eee";
         results.appendChild(anchor);
       });
       if (!matches.length) results.textContent = "No matching content found.";
@@ -1092,13 +1093,28 @@
   });
   // Footer "Download our profile" popup. Built once here so the pages stay uncluttered.
   //
-  // NO BACKEND YET: this form sends nothing. It checks the fields, then the general form
-  // handler above shows a notice. To connect a backend, add data-native-form and your
-  // address to the <form> below (for example action="/your-endpoint") and set the value of
-  // link_document to the file you want to offer. The form then submits normally by POST with
-  // these fields: firstname, lastname, email, phone_number, id_document, link_document,
-  // send_infor_document.
+  // The visitor fills in first name, last name, email and (optional) phone, then the popup shows
+  // the three company profiles (PROFILES below) to download. Filling it in once is enough: the
+  // next time, and after the project details form, the popup opens straight on the downloads.
+  // NO BACKEND YET: nothing is sent while PROFILE_ENDPOINT is empty. Once it is set, the form
+  // is sent by POST in the background with these fields: firstname, lastname, email,
+  // phone_number, id_document, link_document, send_infor_document.
   function setupProfilePopup() {
+    // The three company profiles offered after the form (files in assets/downloads/, made smaller
+    // and with private details blurred on 2026-11-13; the originals are in company-profile/).
+    const PROFILES = [
+      { id: "peb", main: true, name: "PEB Philippines", size: "18.7 MB", file: "assets/downloads/peb-philippines-company-profile.pdf",
+        text: "Who we are, the pre-engineered building system, our projects in the Philippines from 2022 to 2026, SEICO Group and how we manage projects." },
+      { id: "delta", name: "DELTA Group", size: "14.2 MB", file: "assets/downloads/delta-group-company-profile.pdf",
+        text: "Our local partner DELTA DNC Inc. and DELTACON Incorporated: licenses and registrations, equipment, team and Philippine projects." },
+      { id: "seico", name: "SEICO Group", size: "12.6 MB", file: "assets/downloads/seico-group-company-profile.pdf",
+        text: "The manufacturer: factories, quality management, design and production capacity, and projects in Vietnam and abroad (2023 edition)." }
+    ];
+    // Leave empty until there is somewhere to send the details (for example a Google Form's
+    // formResponse address with matching field names). Nothing is sent while it is empty.
+    const PROFILE_ENDPOINT = "";
+    // Shared with the project details form: details given in either one unlock both.
+    const DETAILS_KEY = "pebProjectDetailsGiven";
     const triggers = document.querySelectorAll(".dowload-profile:not([data-link])");
     const $ = window.jQuery;
     if (!triggers.length || !$ || !$.fn || !$.fn.modal) return;
@@ -1109,8 +1125,9 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="logo"><img src="${siteRoot}assets/images/logo-peb-philippines-horizontal.png" alt="PEB Philippines"></div>
+          <div class="profile-step-form">
           <h3 id="profile-popup-title">Fill in the information to download documents</h3>
-          <form method="post" action="" name="profileForm">
+          <form method="post" action="" name="profileForm" data-native-form novalidate>
             <div class="form-group clearfix">
               <div class="col-md-6 profile-name-field">
                 <label for="profile-first-name">First Name</label>
@@ -1138,6 +1155,21 @@
               <button name="sbm-contact" type="submit">Send information</button>
             </div>
           </form>
+          </div>
+          <div class="profile-step-downloads" hidden>
+            <h3 id="profile-downloads-title" tabindex="-1">Company profiles</h3>
+            <p class="profile-intro">Thank you. Download the profiles you would like to read.</p>
+            <ul class="profile-list">${PROFILES.map((p) => `
+              <li class="profile-card${p.main ? " profile-card--main" : ""}">
+                ${p.main ? '<span class="profile-badge">Start here</span>' : ""}
+                <h4>${p.name}</h4>
+                <p>${p.text}</p>
+                <a class="profile-dl" href="${siteRoot}${p.file}" download data-profile="${p.id}">
+                  <i class="fa fa-download" aria-hidden="true"></i> Download PDF <span>(${p.size})</span>
+                </a>
+              </li>`).join("")}
+            </ul>
+          </div>
         </div>
       </div>
     </div>`;
@@ -1145,6 +1177,15 @@
     document.body.appendChild(modal);
     const form = modal.querySelector("form");
     const phone = modal.querySelector("#profile-phone");
+    const stepForm = modal.querySelector(".profile-step-form");
+    const stepDownloads = modal.querySelector(".profile-step-downloads");
+    const detailsGiven = () => { try { return window.localStorage.getItem(DETAILS_KEY) === "yes"; } catch (e) { return false; } };
+    const rememberDetails = () => { try { window.localStorage.setItem(DETAILS_KEY, "yes"); } catch (e) { /* storage blocked: ask again next time */ } };
+    function showStep(downloads) {
+      stepForm.hidden = downloads;
+      stepDownloads.hidden = !downloads;
+      modal.setAttribute("aria-labelledby", downloads ? "profile-downloads-title" : "profile-popup-title");
+    }
 
     // The country code picker loads the first time the popup opens.
     let picker = null;
@@ -1167,7 +1208,9 @@
     }
     function openPopup(event) {
       event.preventDefault();
-      loadPhonePicker();
+      const skip = detailsGiven();   // details already given (here or in the project details form)
+      showStep(skip);
+      if (!skip) loadPhonePicker();
       $(modal).modal("show");
     }
     triggers.forEach((trigger) => {
@@ -1176,12 +1219,28 @@
         if (event.key === "Enter" || event.key === " ") openPopup(event);
       });
     });
-    $(modal).on("shown.bs.modal", () => modal.querySelector("#profile-first-name").focus());
-    // A phone field holding only the dial code counts as blank when the form is submitted.
-    form.addEventListener("submit", () => {
-      if (!picker || !isOnlyDialCode()) return;
-      phone.value = "";
-      setTimeout(showDialCode, 0);
+    $(modal).on("shown.bs.modal", () => (stepDownloads.hidden ? modal.querySelector("#profile-first-name") : stepDownloads.querySelector("h3")).focus());
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      // A phone field holding only the dial code counts as blank.
+      const phoneBlank = picker && isOnlyDialCode();
+      let firstInvalid = null;
+      form.querySelectorAll("input[required]").forEach((field) => {
+        const value = field.value.trim();
+        const invalid = !value || (field.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value));
+        field.setAttribute("aria-invalid", String(invalid));
+        if (invalid && !firstInvalid) firstInvalid = field;
+      });
+      if (firstInvalid) { firstInvalid.focus(); return; }
+      if (PROFILE_ENDPOINT) {
+        const data = new FormData(form);
+        if (phoneBlank) data.set("phone_number", "");
+        // Sent in the background; the downloads show straight away either way.
+        fetch(PROFILE_ENDPOINT, { method: "POST", mode: "no-cors", body: new URLSearchParams(data) }).catch(() => {});
+      }
+      rememberDetails();
+      showStep(true);
+      stepDownloads.querySelector("h3").focus();
     });
     $(modal).on("hidden.bs.modal", () => {
       form.reset();
@@ -1194,6 +1253,81 @@
     });
   }
   setupProfilePopup();
+
+  // Consultation form (contact/consultation.html). The questions follow PEB Philippines' Google
+  // Form for consultations. Each "Other:" choice switches on its own text box (required while
+  // chosen). Choice groups marked data-required need an answer. Plans: instead of a file upload
+  // (a Google Form can't take files from another website), the visitor pastes share links to
+  // their plans (Google Drive, Dropbox, WeTransfer...), one per line; each line must look like a link.
+  // NO BACKEND YET: nothing is sent while CONSULT_ENDPOINT is empty; a notice says so. Field
+  // names: customer_name, contact_number, email, client_type (+ client_type_other), position,
+  // decision_maker (+ _other), project_name, project_location, order_type, start_date,
+  // floor_area, import_license (+ _other), transaction_type (+ _other), estimate_type (+ _other),
+  // plans_link, peb_experience (+ _other), previous_suppliers.
+  function setupConsultationForm() {
+    const form = document.querySelector("form#consultation-request");   // (the Home page has a section with id="consultation")
+    if (!form) return;
+    const CONSULT_ENDPOINT = "";
+    const errorBox = form.querySelector(".hx-consult-error");
+    const plansLink = form.querySelector('[name="plans_link"]');
+    const looksLikeLinks = (text) => text.split(/\n+/).map((line) => line.trim()).filter(Boolean)
+      .every((line) => /^(https?:\/\/)?[^\s/]+\.[^\s]{2,}$/i.test(line));
+
+    // "Other:" text boxes follow their radio button.
+    form.querySelectorAll(".hx-choice").forEach((group) => {
+      const other = group.querySelector('.hx-choice-other input[type="text"]');
+      group.addEventListener("change", () => {
+        group.removeAttribute("aria-invalid");
+        if (!other) return;
+        const on = group.querySelector('.hx-choice-other input[type="radio"]').checked;
+        other.disabled = !on;
+        other.required = on;
+        if (on) other.focus(); else { other.value = ""; other.removeAttribute("aria-invalid"); }
+      });
+    });
+
+    form.addEventListener("input", (event) => {
+      if (event.target.getAttribute("aria-invalid") === "true") event.target.removeAttribute("aria-invalid");
+    });
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      let firstInvalid = null;
+      const flag = (element, focusTarget) => { element.setAttribute("aria-invalid", "true"); if (!firstInvalid) firstInvalid = focusTarget || element; };
+      form.querySelectorAll("input[required]:not([disabled]), textarea[required]").forEach((field) => {
+        const value = field.value.trim();
+        let bad = !value;
+        if (!bad && field.type === "email") bad = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+        if (!bad && field.type === "tel") { const digits = value.replace(/\D/g, ""); bad = digits.length < 7 || digits.length > 15; }
+        if (bad) flag(field); else field.removeAttribute("aria-invalid");
+      });
+      form.querySelectorAll(".hx-choice[data-required]").forEach((group) => {
+        if (!group.querySelector('input[type="radio"]:checked')) flag(group, group.querySelector('input[type="radio"]'));
+      });
+      if (plansLink.value.trim() && !looksLikeLinks(plansLink.value)) flag(plansLink); else plansLink.removeAttribute("aria-invalid");
+      if (firstInvalid) {
+        errorBox.hidden = false;
+        firstInvalid.focus();
+        return;
+      }
+      errorBox.hidden = true;
+      if (CONSULT_ENDPOINT) {
+        const data = new FormData(form);
+        fetch(CONSULT_ENDPOINT, { method: "POST", mode: "no-cors", body: new URLSearchParams(data) }).catch(() => {});
+      }
+      let note = form.querySelector("[data-replica-form-note]");
+      if (!note) {
+        note = document.createElement("p");
+        note.setAttribute("data-replica-form-note", "true");
+        note.setAttribute("role", "status");
+        form.appendChild(note);
+      }
+      note.textContent = CONSULT_ENDPOINT
+        ? "Thank you. Your consultation request has been sent. Our team will get in touch with you."
+        : "This is a front-end form template. Connect your own backend or email service to receive submissions. No information has been sent.";
+    });
+  }
+  setupConsultationForm();
   // Project details form (one popup for the whole site). It opens:
   //  - from links to SEICO's project search on seico.vn (the Vietnam, Thailand and Indonesia menu
   //    items and the country flags on the Projects page), then continues to seico.vn;
@@ -1540,6 +1674,72 @@
   }
   setupShareLinks();
 
+  // Detaching navigation bar (every page), an idea borrowed from pebphilsteel.com on 2026-11-13.
+  // It works in two steps so nothing pops:
+  //   1. "nav-stuck": once the top contact strip has scrolled away, the menu bar (desktop) or the
+  //      logo bar with the menu button (phones and tablets) stays pinned to the top of the window,
+  //      looking exactly as it does in the header;
+  //   2. "nav-detached": after scrolling DETACH_AFTER px past the header, the bar smoothly pulls away
+  //      from the edges into a rounded, frosted card 12px below the top (CSS transitions).
+  // Scrolling back up plays it in reverse. The header keeps its height while the bar is pinned, so
+  // the page underneath doesn't jump. Styles: "DETACHING NAVIGATION BAR" in main.css.
+  function setupDetachingNav() {
+    const header = document.querySelector("header.header");   // the site header (not the phone menu, which is also a <header>)
+    if (!header) return null;
+    const html = document.documentElement;
+    const GAP = 12;            // px between the floating card and the top of the window (same as the CSS)
+    const DETACH_AFTER = 60;   // px of scrolling past the header before the bar turns into the card
+    let stickAt = 0;           // scroll position where the bar reaches the top of the window
+    let detachAt = 0;
+    let naturalHeight = 0;
+    let barHeight = 0;
+    let ticking = false;
+    const scrollY = () => window.scrollY || html.scrollTop || 0;
+    const activeBar = () => {
+      const desk = header.querySelector(".vtc-menu-desktop .midde");
+      if (desk && getComputedStyle(desk).display !== "none") return desk;
+      return header.querySelector(".vtc-menu-mobile");
+    };
+    const update = () => {
+      ticking = false;
+      const y = scrollY();
+      const stuck = y > stickAt;
+      const detached = stuck && y > detachAt;
+      const wasStuck = html.classList.contains("nav-stuck");
+      if (stuck === wasStuck && detached === html.classList.contains("nav-detached")) return;
+      header.style.minHeight = stuck ? naturalHeight + "px" : "";   // hold the space the bar leaves behind
+      // Landing far down the page in one jump (reload, link to a section): drop the card in from above.
+      html.classList.toggle("nav-drop", detached && !wasStuck);
+      html.classList.toggle("nav-stuck", stuck);
+      html.classList.toggle("nav-detached", detached);
+    };
+    const measure = () => {
+      const wasPinned = html.classList.contains("nav-stuck");
+      html.classList.add("nav-instant");   // re-measuring after a resize: no animation
+      html.classList.remove("nav-stuck", "nav-detached", "nav-drop");
+      header.style.minHeight = "";
+      const y = scrollY();
+      naturalHeight = header.offsetHeight;
+      const bar = activeBar();
+      barHeight = bar ? bar.offsetHeight : 0;
+      stickAt = bar ? bar.getBoundingClientRect().top + y : 0;
+      detachAt = header.getBoundingClientRect().bottom + y + DETACH_AFTER;
+      update();
+      if (wasPinned) html.classList.remove("nav-drop");   // it was already showing: don't drop it in again
+      window.requestAnimationFrame(() => window.requestAnimationFrame(() => html.classList.remove("nav-instant")));
+    };
+    window.addEventListener("scroll", () => {
+      if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
+    }, { passive: true });
+    window.addEventListener("resize", measure);
+    window.addEventListener("load", measure);
+    measure();
+    // How far a section has to stay below the top of the window so the bar doesn't cover it
+    // (used by the section links below). 0 while the page is still at the top.
+    return { offsetFor: (y) => (y <= stickAt ? 0 : (y > detachAt ? GAP : 0) + barHeight + 8) };
+  }
+  const detachingNav = setupDetachingNav();
+
   // Section links (every page): any link to a section on the same page glides there instead of jumping.
   // This covers jump links, tables of contents and any such link added later, with no extra code.
   // Like the back-to-top glide, it animates even when the system asks for reduced motion (the owner wants the animation).
@@ -1555,12 +1755,13 @@
       stopEvents.forEach((name) => window.removeEventListener(name, stop, true));
       gliding = null;
     };
-    const glideTo = (target) => {
+    const glideTo = (target, retries = 2) => {
       stop();
       const margin = parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
       const maxY = Math.max(0, root.scrollHeight - window.innerHeight);
       const start = window.scrollY || root.scrollTop || 0;
-      const end = Math.min(maxY, Math.max(0, Math.round(target.getBoundingClientRect().top + start - margin)));
+      let end = Math.min(maxY, Math.max(0, Math.round(target.getBoundingClientRect().top + start - margin)));
+      if (detachingNav) end = Math.max(0, end - detachingNav.offsetFor(end));   // stop below the floating menu bar
       const distance = end - start;
       if (Math.abs(distance) < 2) { window.scrollTo(0, end); return; }
       const duration = Math.min(MAX_MS, 450 + Math.abs(distance) * 0.15);
@@ -1574,7 +1775,15 @@
         const progress = Math.min(1, (now - began) / duration);
         window.scrollTo(0, Math.round(start + distance * ease(progress)));
         if (progress < 1) window.requestAnimationFrame(step);
-        else stop();
+        else {
+          stop();
+          // Pictures that load during the glide can push the section down: aim again (up to twice).
+          if (retries > 0) window.setTimeout(() => {
+            const off = detachingNav ? detachingNav.offsetFor(window.scrollY) : 0;
+            const miss = target.getBoundingClientRect().top - margin - off;
+            if (Math.abs(miss) > 4) glideTo(target, retries - 1);
+          }, 120);
+        }
       };
       window.requestAnimationFrame(step);
     };
@@ -1714,7 +1923,7 @@
   if (window.location.search && !handlesQuery) {
     const note = document.createElement("p");
     note.textContent = "Listing template \u2014 connect your content and filtering logic here. This front-end copy has no backend.";
-    note.style.cssText = "margin:20px auto;padding:12px 18px;max-width:1140px;background:#f3f6fa;border-left:3px solid #204279;color:#687b91;font-size:13px";
+    note.style.cssText = "margin:20px auto;padding:12px 18px;max-width:1140px;background:#f3f6fa;border-left:3px solid #2672b0;color:#687b91;font-size:13px";
     (_a = document.querySelector("main")) == null ? void 0 : _a.prepend(note);
   }
   console.info("Editable static website copy. Forms are templates; no backend is included.");

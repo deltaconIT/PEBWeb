@@ -11,7 +11,7 @@
                                     then every project by year
      <div data-ph-type-page></div>  Project Types: the type named in the
                                     address (?type=commercial), or all types
-     <span data-ph-count="listed|more|total|types"></span>   numbers
+     <span data-ph-count="listed|more|total|types|steel"></span>   numbers
 
    The full lists start hidden behind a "See all" button. The button opens
    the details form (setupProjectLeadForm in assets/js/main.js), which shows
@@ -30,6 +30,12 @@
   data.types.forEach(function (type) { typeById[type.id] = type; });
 
   function url(path) { return root ? new URL(path, root).href : path; }
+  // Cards show a small copy from a thumbs/ folder next to the photo (800px wide); the viewer opens the
+  // full photo. If a thumbnail is missing, the image falls back to the full photo.
+  function thumb(path) { return url(String(path).replace(/\/([^\/]+)$/, "/thumbs/$1")); }
+  function thumbImg(path, attrs) {
+    return '<img src="' + thumb(path) + '" ' + attrs + ' onerror="this.onerror=null;this.src=\'' + url(path) + '\'">';
+  }
   function esc(text) {
     return String(text).replace(/[&<>"']/g, function (c) {
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
@@ -62,7 +68,7 @@
     var group = "pjl-" + slug(p.name);
     var caption = esc(p.name + " (" + p.year + ")");
     return '<a class="pj-card-media" href="' + url(photos[0]) + '" data-fancybox="' + group + '" data-caption="' + caption + '">' +
-      '<img src="' + url(photos[0]) + '" alt="' + esc(p.name + ", " + place(p)) + '" loading="lazy">' +
+      thumbImg(photos[0], 'alt="' + esc(p.name + ", " + place(p)) + '" loading="lazy"') +
       (photos.length > 1 ? '<span class="pj-feature-zoom"><i class="fa fa-camera" aria-hidden="true"></i>' + photos.length + " photos</span>" : "") +
       "</a>" +
       photos.slice(1).map(function (photo) {
@@ -93,7 +99,7 @@
     var media = "";
     if (photos.length) {
       media = '<a class="pj-feature-media" href="' + url(photos[0]) + '" data-fancybox="' + group + '" data-caption="' + esc(p.name + " (" + p.year + ")") + '">' +
-        '<img src="' + url(photos[0]) + '" alt="' + esc(p.name + ", " + place(p)) + '" width="1200" height="900" loading="lazy">' +
+        thumbImg(photos[0], 'alt="' + esc(p.name + ", " + place(p)) + '" width="1200" height="900" loading="lazy"') +
         '<span class="pj-feature-year">' + p.year + "</span>" +
         (photos.length > 1 ? '<span class="pj-feature-zoom"><i class="fa fa-camera" aria-hidden="true"></i>' + photos.length + " photos</span>" : "") +
         "</a>" +
@@ -156,10 +162,21 @@
   }
 
   // ---- placeholders ----
+  // Steel total: the tonnage of every listed project added up, rounded down to
+  // the hundred and shown with "+", so it stays true as projects are added.
+  var steelTotal = Math.floor(projects.reduce(function (sum, p) { return sum + tons(p); }, 0) / 100) * 100;
+  var steelLabel = steelTotal.toLocaleString("en-US") + "+";
   document.querySelectorAll("[data-ph-count]").forEach(function (node) {
     var what = node.getAttribute("data-ph-count");
     var featuredCount = projects.filter(function (p) { return p.featured; }).length;
-    node.textContent = { listed: projects.length, more: projects.length - featuredCount, total: data.totalProjects, types: data.types.length, steel: data.steelLabel }[what];
+    node.textContent = { listed: projects.length, more: projects.length - featuredCount, total: data.totalProjects, types: data.types.length, steel: steelLabel }[what];
+  });
+  // Animated counters (home page): <span class="counter" data-ph-target="steel|total">.
+  // main.js counts up to data-target, so set it before main.js runs.
+  document.querySelectorAll("[data-ph-target]").forEach(function (node) {
+    var what = node.getAttribute("data-ph-target");
+    var value = { steel: steelTotal, total: parseInt(data.totalProjects, 10) }[what];
+    if (value) node.setAttribute("data-target", String(value));
   });
 
   document.querySelectorAll("[data-ph-featured]").forEach(function (node) {

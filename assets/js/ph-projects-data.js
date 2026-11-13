@@ -18,7 +18,7 @@
    ===================================================================== */
 window.PEB_PROJECTS = {
   totalProjects: "50+",        // all projects in the Philippines, including ones not listed here
-  steelLabel: "5,700+",     // tons of steel in the listed projects
+  // The steel total shown on the site ("5,700+") is added up from the projects below (assets/js/ph-projects.js).
 
   types: [
     { id: "commercial",  name: "Commercial & showrooms",     icon: "fa-building-o", text: "Car showrooms, commercial buildings, a supermarket and a furniture showroom." },
