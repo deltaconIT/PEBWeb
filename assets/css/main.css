@@ -5490,6 +5490,11 @@ html {
   background: #ffffff;
 }
 
+/* landscape documents (PCA certificate) get a wider image column */
+.hx .hx-doc--landscape {
+  grid-template-columns: minmax(0, 440px) minmax(0, 1fr);
+}
+
 .hx .hx-doc-img {
   position: relative;
   display: block;
@@ -8653,5 +8658,60 @@ ul.follow li a.follow-soon {
 
   .hx .hx-table-wrap:has(.hx-specs--stack) {
     overflow: visible;
+  }
+}
+
+/* tablets: the landscape document card keeps a wider image than the portrait ones (220px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .hx .hx-doc--landscape {
+    grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+  }
+}
+
+/* Home, section 02: "See how a pre-engineered building comes together" video (2026-11-13) */
+.hx .hx-process-video {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 48px;
+  align-items: center;
+  margin-top: 64px;
+  padding-top: 48px;
+  border-top: 1px solid var(--hx-line);
+}
+
+.hx .hx-process-video-kicker {
+  margin: 0 0 10px;
+  color: var(--hx-red);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.hx .hx-process-video-title {
+  margin: 0 0 16px;
+  color: var(--hx-navy);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.hx .hx-process-video-text p:not(.hx-process-video-kicker) {
+  margin: 0 0 12px;
+  color: var(--hx-text);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+@media (max-width: 991px) {
+  .hx .hx-process-video {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-top: 48px;
+    padding-top: 36px;
+  }
+
+  .hx .hx-process-video-title {
+    font-size: 22px;
   }
 }

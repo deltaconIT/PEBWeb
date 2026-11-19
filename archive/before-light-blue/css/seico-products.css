@@ -1,0 +1,14 @@
+.box-desc > p {
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.title_pro {
+	font-weight: bold;
+	text-align: center;
+	color: #204279;
+	margin-bottom: 25px;
+}
