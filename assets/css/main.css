@@ -7873,15 +7873,17 @@ ul.follow li a.follow-soon {
   }
 }
 
-/* Home, section 02: "See how a pre-engineered building comes together" video (2026-11-13) */
+/* Home, section 02: "See how a pre-engineered building comes together" video (2026-11-13).
+   Since 2026-11-20 it opens the section, right after Products & services, with the
+   "One team" steps below it (the dividing line moved from above to below). */
 .hx .hx-process-video {
   display: grid;
   grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
   gap: 48px;
   align-items: center;
-  margin-top: 64px;
-  padding-top: 48px;
-  border-top: 1px solid var(--hx-line);
+  margin-bottom: 64px;
+  padding-bottom: 64px;
+  border-bottom: 1px solid var(--hx-line);
 }
 
 .hx .hx-process-video-kicker {
@@ -7912,8 +7914,8 @@ ul.follow li a.follow-soon {
   .hx .hx-process-video {
     grid-template-columns: 1fr;
     gap: 28px;
-    margin-top: 48px;
-    padding-top: 36px;
+    margin-bottom: 48px;
+    padding-bottom: 48px;
   }
 
   .hx .hx-process-video-title {
