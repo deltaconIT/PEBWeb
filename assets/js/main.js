@@ -1,6 +1,6 @@
 "use strict";
 /* =====================================================================
-   SEICO WEBSITE - MAIN SCRIPT
+   PEB PHILIPPINES WEBSITE - MAIN SCRIPT
    ---------------------------------------------------------------------
    Loaded at the bottom of every page, after the libraries in vendor/js/.
 
@@ -9,6 +9,7 @@
                         Edit the lists below; links are written relative
                         to the website root (the folder with index.html).
    PART 2  Site code  - menus, search, sliders, map, forms, etc.
+                        (Sending forms to Google Forms is in google-forms.js.)
    ===================================================================== */
 
 
@@ -36,7 +37,7 @@
     {"path": "/contact/consultation.html", "title": "Request a consultation | PEB Philippines - Pre-engineered steel buildings & steel structures", "href": "contact/consultation.html"},
     // {"path": "/archive/hidden-pages/careers/careers.html", "title": "Careers | PEB Philippines - Pre-engineered steel buildings & steel structures", "href": "archive/hidden-pages/careers/careers.html"},
     // {"path": "/archive/hidden-pages/news-publications/articles/radiant-seico-photo-contest-celebrating-the-women-of-seico-20-10-4358.html", "title": "“RADIANT SEICO” PHOTO CONTEST – CELEBRATING THE WOMEN...", "href": "archive/hidden-pages/news-publications/articles/radiant-seico-photo-contest-celebrating-the-women-of-seico-20-10-4358.html"},
-    {"path": "/projects/details/heller-vinfast.html", "title": "Heller-Vinfast | PEB Philippines - Pre-engineered factory construction", "href": "projects/details/heller-vinfast.html"},
+    // {"path": "/archive/hidden-pages/project-details/heller-vinfast.html", "title": "Heller-Vinfast | PEB Philippines - Pre-engineered factory construction", "href": "archive/hidden-pages/project-details/heller-vinfast.html"},
     // {"path": "/archive/hidden-pages/news-publications/articles/pre-engineered-steel-structure-4349.html", "title": "What is a pre-engineered steel structure? Components and detailed structure", "href": "archive/hidden-pages/news-publications/articles/pre-engineered-steel-structure-4349.html"},
     // {"path": "/archive/hidden-pages/careers/jobs/marketing-manager.html", "title": "B2B Marketing Manager | PEB Philippines - Pre-engineered steel...", "href": "archive/hidden-pages/careers/jobs/marketing-manager.html"},
     {"path": "/products-services/pre-engineered-steel-building/pre-engineered-steel-building.html", "title": "What is a pre-engineered steel building? Structure, applications and prices", "href": "products-services/pre-engineered-steel-building/pre-engineered-steel-building.html"},
@@ -53,33 +54,33 @@
     {"path": "/products-services/accessory-products/roof-and-wall-panels.html", "title": "Cladding profile for roof and walls | PEB Philippines", "href": "products-services/accessory-products/roof-and-wall-panels.html"},
     // {"path": "/archive/hidden-pages/news-publications/publications.html", "title": "Publications | PEB Philippines - Pre-engineered steel buildings & steel structures", "href": "archive/hidden-pages/news-publications/publications.html"},
     // {"path": "/archive/hidden-pages/news-publications/news.html", "title": "News | PEB Philippines - Pre-engineered steel buildings & steel structures", "href": "archive/hidden-pages/news-publications/news.html"},
-    {"path": "/projects/details/phuong-dong-tent-complex-van-don.html", "title": "PHUONG DONG TENT COMPLEX - VAN DON | PEB Philippines", "href": "projects/details/phuong-dong-tent-complex-van-don.html"},
-    {"path": "/projects/details/metro-line-1-ben-thanh-suoi-tien.html", "title": "Metro Line No. 1, Ben Thanh - Suoi Tien", "href": "projects/details/metro-line-1-ben-thanh-suoi-tien.html"},
-    {"path": "/projects/details/bw-dong-hai-cn4-2.html", "title": "BW Dong Hai CN4-2 | PEB Philippines", "href": "projects/details/bw-dong-hai-cn4-2.html"},
-    {"path": "/projects/details/foxconn-factory.html", "title": "Foxconn Factory | PEB Philippines", "href": "projects/details/foxconn-factory.html"},
-    {"path": "/projects/details/greenfeed-hung-yen-factory.html", "title": "GreenFeed Hung Yen Factory | PEB Philippines", "href": "projects/details/greenfeed-hung-yen-factory.html"},
-    {"path": "/projects/details/canadian-international-school-complex-lao-cai-cis-lao-cai.html", "title": "Canadian International School complex in Lao Cai (CIS Lao Cai) | PEB Philippines", "href": "projects/details/canadian-international-school-complex-lao-cai-cis-lao-cai.html"},
-    {"path": "/projects/details/xuan-thien-feed-mill.html", "title": "XUAN THIEN FEED MILL | PEB Philippines", "href": "projects/details/xuan-thien-feed-mill.html"},
-    {"path": "/projects/details/high-tech-export-poultry-farm-4a-cao-ngoc.html", "title": "HIGH-TECH EXPORT POULTRY FARM - 4A CAO NGOC | PEB Philippines", "href": "projects/details/high-tech-export-poultry-farm-4a-cao-ngoc.html"},
-    {"path": "/projects/details/core-5-factory.html", "title": "CORE 5 Factory | PEB Philippines", "href": "projects/details/core-5-factory.html"},
-    {"path": "/projects/details/light-building-high-tech-pig-farm.html", "title": "Light building for a high-tech pig farm | PEB Philippines", "href": "projects/details/light-building-high-tech-pig-farm.html"},
-    {"path": "/projects/details/messer-industrial-gas-plant.html", "title": "MESSER INDUSTRIAL GAS PLANT | PEB Philippines", "href": "projects/details/messer-industrial-gas-plant.html"},
-    {"path": "/projects/details/nam-tai-factory.html", "title": "Nam Tai Factory | PEB Philippines", "href": "projects/details/nam-tai-factory.html"},
-    {"path": "/projects/details/factory-at-an-phat-high-tech-industrial-park.html", "title": "FACTORY AT AN PHAT HIGH-TECH INDUSTRIAL PARK | PEB Philippines", "href": "projects/details/factory-at-an-phat-high-tech-industrial-park.html"},
-    {"path": "/projects/details/thai-tuan-textile-finishing-factory.html", "title": "Thai Tuan Textile Finishing Factory | PEB Philippines", "href": "projects/details/thai-tuan-textile-finishing-factory.html"},
-    {"path": "/projects/details/taisan-factory.html", "title": "TAISAN FACTORY | PEB Philippines", "href": "projects/details/taisan-factory.html"},
-    {"path": "/projects/details/huong-binh-cable-car-line.html", "title": "HUONG BINH CABLE CAR LINE | PEB Philippines", "href": "projects/details/huong-binh-cable-car-line.html"},
-    {"path": "/projects/details/fujix-electronic-factory.html", "title": "Fujix Electronic Factory | PEB Philippines", "href": "projects/details/fujix-electronic-factory.html"},
-    {"path": "/projects/details/autoliv-factory.html", "title": "Autoliv Factory | PEB Philippines", "href": "projects/details/autoliv-factory.html"},
-    {"path": "/projects/details/nitto-denko-vietnam-factory.html", "title": "Nitto Denko Vietnam Factory | PEB Philippines", "href": "projects/details/nitto-denko-vietnam-factory.html"},
-    {"path": "/projects/details/190-factory.html", "title": "Factory 190 | PEB Philippines", "href": "projects/details/190-factory.html"},
-    {"path": "/projects/details/trancy-distribution-center.html", "title": "Trancy Distribution Center | PEB Philippines", "href": "projects/details/trancy-distribution-center.html"},
-    {"path": "/projects/details/tan-a-factory.html", "title": "Tan A Factory | PEB Philippines", "href": "projects/details/tan-a-factory.html"},
-    {"path": "/projects/details/tp-tech-factory.html", "title": "TP Tech Factory | PEB Philippines", "href": "projects/details/tp-tech-factory.html"},
-    {"path": "/projects/details/power-plus-technology-factory.html", "title": "Power Plus Technology factory | PEB Philippines", "href": "projects/details/power-plus-technology-factory.html"},
-    {"path": "/projects/details/van-don-entertainment-complex.html", "title": "Van Don urban area | PEB Philippines", "href": "projects/details/van-don-entertainment-complex.html"},
-    {"path": "/projects/details/cfg-factory.html", "title": "CFG Float Glass Factory | PEB Philippines", "href": "projects/details/cfg-factory.html"},
-    {"path": "/projects/details/logis-valley.html", "title": "Logis Valley Factory | PEB Philippines", "href": "projects/details/logis-valley.html"},
+    // {"path": "/archive/hidden-pages/project-details/phuong-dong-tent-complex-van-don.html", "title": "PHUONG DONG TENT COMPLEX - VAN DON | PEB Philippines", "href": "archive/hidden-pages/project-details/phuong-dong-tent-complex-van-don.html"},
+    // {"path": "/archive/hidden-pages/project-details/metro-line-1-ben-thanh-suoi-tien.html", "title": "Metro Line No. 1, Ben Thanh - Suoi Tien", "href": "archive/hidden-pages/project-details/metro-line-1-ben-thanh-suoi-tien.html"},
+    // {"path": "/archive/hidden-pages/project-details/bw-dong-hai-cn4-2.html", "title": "BW Dong Hai CN4-2 | PEB Philippines", "href": "archive/hidden-pages/project-details/bw-dong-hai-cn4-2.html"},
+    // {"path": "/archive/hidden-pages/project-details/foxconn-factory.html", "title": "Foxconn Factory | PEB Philippines", "href": "archive/hidden-pages/project-details/foxconn-factory.html"},
+    // {"path": "/archive/hidden-pages/project-details/greenfeed-hung-yen-factory.html", "title": "GreenFeed Hung Yen Factory | PEB Philippines", "href": "archive/hidden-pages/project-details/greenfeed-hung-yen-factory.html"},
+    // {"path": "/archive/hidden-pages/project-details/canadian-international-school-complex-lao-cai-cis-lao-cai.html", "title": "Canadian International School complex in Lao Cai (CIS Lao Cai) | PEB Philippines", "href": "archive/hidden-pages/project-details/canadian-international-school-complex-lao-cai-cis-lao-cai.html"},
+    // {"path": "/archive/hidden-pages/project-details/xuan-thien-feed-mill.html", "title": "XUAN THIEN FEED MILL | PEB Philippines", "href": "archive/hidden-pages/project-details/xuan-thien-feed-mill.html"},
+    // {"path": "/archive/hidden-pages/project-details/high-tech-export-poultry-farm-4a-cao-ngoc.html", "title": "HIGH-TECH EXPORT POULTRY FARM - 4A CAO NGOC | PEB Philippines", "href": "archive/hidden-pages/project-details/high-tech-export-poultry-farm-4a-cao-ngoc.html"},
+    // {"path": "/archive/hidden-pages/project-details/core-5-factory.html", "title": "CORE 5 Factory | PEB Philippines", "href": "archive/hidden-pages/project-details/core-5-factory.html"},
+    // {"path": "/archive/hidden-pages/project-details/light-building-high-tech-pig-farm.html", "title": "Light building for a high-tech pig farm | PEB Philippines", "href": "archive/hidden-pages/project-details/light-building-high-tech-pig-farm.html"},
+    // {"path": "/archive/hidden-pages/project-details/messer-industrial-gas-plant.html", "title": "MESSER INDUSTRIAL GAS PLANT | PEB Philippines", "href": "archive/hidden-pages/project-details/messer-industrial-gas-plant.html"},
+    // {"path": "/archive/hidden-pages/project-details/nam-tai-factory.html", "title": "Nam Tai Factory | PEB Philippines", "href": "archive/hidden-pages/project-details/nam-tai-factory.html"},
+    // {"path": "/archive/hidden-pages/project-details/factory-at-an-phat-high-tech-industrial-park.html", "title": "FACTORY AT AN PHAT HIGH-TECH INDUSTRIAL PARK | PEB Philippines", "href": "archive/hidden-pages/project-details/factory-at-an-phat-high-tech-industrial-park.html"},
+    // {"path": "/archive/hidden-pages/project-details/thai-tuan-textile-finishing-factory.html", "title": "Thai Tuan Textile Finishing Factory | PEB Philippines", "href": "archive/hidden-pages/project-details/thai-tuan-textile-finishing-factory.html"},
+    // {"path": "/archive/hidden-pages/project-details/taisan-factory.html", "title": "TAISAN FACTORY | PEB Philippines", "href": "archive/hidden-pages/project-details/taisan-factory.html"},
+    // {"path": "/archive/hidden-pages/project-details/huong-binh-cable-car-line.html", "title": "HUONG BINH CABLE CAR LINE | PEB Philippines", "href": "archive/hidden-pages/project-details/huong-binh-cable-car-line.html"},
+    // {"path": "/archive/hidden-pages/project-details/fujix-electronic-factory.html", "title": "Fujix Electronic Factory | PEB Philippines", "href": "archive/hidden-pages/project-details/fujix-electronic-factory.html"},
+    // {"path": "/archive/hidden-pages/project-details/autoliv-factory.html", "title": "Autoliv Factory | PEB Philippines", "href": "archive/hidden-pages/project-details/autoliv-factory.html"},
+    // {"path": "/archive/hidden-pages/project-details/nitto-denko-vietnam-factory.html", "title": "Nitto Denko Vietnam Factory | PEB Philippines", "href": "archive/hidden-pages/project-details/nitto-denko-vietnam-factory.html"},
+    // {"path": "/archive/hidden-pages/project-details/190-factory.html", "title": "Factory 190 | PEB Philippines", "href": "archive/hidden-pages/project-details/190-factory.html"},
+    // {"path": "/archive/hidden-pages/project-details/trancy-distribution-center.html", "title": "Trancy Distribution Center | PEB Philippines", "href": "archive/hidden-pages/project-details/trancy-distribution-center.html"},
+    // {"path": "/archive/hidden-pages/project-details/tan-a-factory.html", "title": "Tan A Factory | PEB Philippines", "href": "archive/hidden-pages/project-details/tan-a-factory.html"},
+    // {"path": "/archive/hidden-pages/project-details/tp-tech-factory.html", "title": "TP Tech Factory | PEB Philippines", "href": "archive/hidden-pages/project-details/tp-tech-factory.html"},
+    // {"path": "/archive/hidden-pages/project-details/power-plus-technology-factory.html", "title": "Power Plus Technology factory | PEB Philippines", "href": "archive/hidden-pages/project-details/power-plus-technology-factory.html"},
+    // {"path": "/archive/hidden-pages/project-details/van-don-entertainment-complex.html", "title": "Van Don urban area | PEB Philippines", "href": "archive/hidden-pages/project-details/van-don-entertainment-complex.html"},
+    // {"path": "/archive/hidden-pages/project-details/cfg-factory.html", "title": "CFG Float Glass Factory | PEB Philippines", "href": "archive/hidden-pages/project-details/cfg-factory.html"},
+    // {"path": "/archive/hidden-pages/project-details/logis-valley.html", "title": "Logis Valley Factory | PEB Philippines", "href": "archive/hidden-pages/project-details/logis-valley.html"},
     // {"path": "/archive/hidden-pages/news-publications/articles/pre-engineered-factory-building-4339.html", "title": "Pre-engineered factory buildings: structure, advantages & prices 2026 | PEB Philippines", "href": "archive/hidden-pages/news-publications/articles/pre-engineered-factory-building-4339.html"},
     // {"path": "/archive/hidden-pages/news-publications/articles/pre-engineered-steel-building-erection-4337.html", "title": "5-step standard, safe pre-engineered steel building erection process 2026 | PEB Philippines", "href": "archive/hidden-pages/news-publications/articles/pre-engineered-steel-building-erection-4337.html"},
     {"path": "/products-services/products-services.html", "title": "Products & Services | PEB Philippines", "href": "products-services/products-services.html"},
@@ -99,15 +100,15 @@
     // {"path": "/archive/hidden-pages/news-publications/articles/what-is-sp-deck-why-it-carries-more-load-and-spans-further-than-standard-deck-4106.html", "title": "What is SP Deck? Why does it carry more load and span further than standard deck floors? | PEB Philippines", "href": "archive/hidden-pages/news-publications/articles/what-is-sp-deck-why-it-carries-more-load-and-spans-further-than-standard-deck-4106.html"},
     // {"path": "/archive/hidden-pages/news-publications/articles/sp-deck-when-investors-buy-schedule-and-peace-of-mind-not-just-a-floor-4135.html", "title": "SP DECK – When investors buy schedule and peace of mind, not just a floor system | PEB Philippines", "href": "archive/hidden-pages/news-publications/articles/sp-deck-when-investors-buy-schedule-and-peace-of-mind-not-just-a-floor-4135.html"},
     // archived: {"path": "/archive/projects-before-restructure/industrial-projects.html", "title": "Industrial projects | PEB Philippines", "href": "archive/projects-before-restructure/industrial-projects.html"},
-    {"path": "/projects/details/shinwon-factory.html", "title": "Shinwon Factory | PEB Philippines", "href": "projects/details/shinwon-factory.html"},
-    {"path": "/projects/details/molex-hung-yen.html", "title": "MOLEX - HUNG YEN | PEB Philippines", "href": "projects/details/molex-hung-yen.html"},
-    {"path": "/projects/details/tinh-loi-factory.html", "title": "Tinh Loi Factory blocks 3 & 4 | PEB Philippines", "href": "projects/details/tinh-loi-factory.html"},
-    {"path": "/projects/details/mcs.html", "title": "MCS 4 Project | PEB Philippines", "href": "projects/details/mcs.html"},
-    {"path": "/projects/details/denyo-factory-phase-1.html", "title": "Denyo Factory Phase 1 | PEB Philippines", "href": "projects/details/denyo-factory-phase-1.html"},
-    {"path": "/projects/details/damen-shipyard.html", "title": "Damen Shipyard | PEB Philippines", "href": "projects/details/damen-shipyard.html"},
-    {"path": "/projects/details/shin-etsu-dviz-factory.html", "title": "Shin Etsu DVIZ Factory | PEB Philippines", "href": "projects/details/shin-etsu-dviz-factory.html"},
-    {"path": "/projects/details/nikkiso-factory.html", "title": "Nikkiso Factory | PEB Philippines", "href": "projects/details/nikkiso-factory.html"},
-    {"path": "/projects/details/mitsubishi-heavy-industries-factory.html", "title": "MHI Aerospace Vietnam | PEB Philippines", "href": "projects/details/mitsubishi-heavy-industries-factory.html"},
+    // {"path": "/archive/hidden-pages/project-details/shinwon-factory.html", "title": "Shinwon Factory | PEB Philippines", "href": "archive/hidden-pages/project-details/shinwon-factory.html"},
+    // {"path": "/archive/hidden-pages/project-details/molex-hung-yen.html", "title": "MOLEX - HUNG YEN | PEB Philippines", "href": "archive/hidden-pages/project-details/molex-hung-yen.html"},
+    // {"path": "/archive/hidden-pages/project-details/tinh-loi-factory.html", "title": "Tinh Loi Factory blocks 3 & 4 | PEB Philippines", "href": "archive/hidden-pages/project-details/tinh-loi-factory.html"},
+    // {"path": "/archive/hidden-pages/project-details/mcs.html", "title": "MCS 4 Project | PEB Philippines", "href": "archive/hidden-pages/project-details/mcs.html"},
+    // {"path": "/archive/hidden-pages/project-details/denyo-factory-phase-1.html", "title": "Denyo Factory Phase 1 | PEB Philippines", "href": "archive/hidden-pages/project-details/denyo-factory-phase-1.html"},
+    // {"path": "/archive/hidden-pages/project-details/damen-shipyard.html", "title": "Damen Shipyard | PEB Philippines", "href": "archive/hidden-pages/project-details/damen-shipyard.html"},
+    // {"path": "/archive/hidden-pages/project-details/shin-etsu-dviz-factory.html", "title": "Shin Etsu DVIZ Factory | PEB Philippines", "href": "archive/hidden-pages/project-details/shin-etsu-dviz-factory.html"},
+    // {"path": "/archive/hidden-pages/project-details/nikkiso-factory.html", "title": "Nikkiso Factory | PEB Philippines", "href": "archive/hidden-pages/project-details/nikkiso-factory.html"},
+    // {"path": "/archive/hidden-pages/project-details/mitsubishi-heavy-industries-factory.html", "title": "MHI Aerospace Vietnam | PEB Philippines", "href": "archive/hidden-pages/project-details/mitsubishi-heavy-industries-factory.html"},
     {"path": "/products-services/steel-structure/steel-structure.html", "title": "Steel structure | PEB Philippines", "href": "products-services/steel-structure/steel-structure.html"},
     // {"path": "/archive/hidden-pages/news-publications/articles/is-your-steel-building-ready-for-earthquakes-3614.html", "title": "IS YOUR STEEL BUILDING READY FOR EARTHQUAKES? | PEB Philippines", "href": "archive/hidden-pages/news-publications/articles/is-your-steel-building-ready-for-earthquakes-3614.html"},
     // {"path": "/archive/hidden-pages/news-publications/articles/light-steel-buildings-for-livestock-farms-4359.html", "title": "Light steel buildings for livestock farms: cost-optimized & efficient to operate | PEB Philippines", "href": "archive/hidden-pages/news-publications/articles/light-steel-buildings-for-livestock-farms-4359.html"},
@@ -120,27 +121,29 @@
     {"path": "/products-services/accessory-products/deck-floor-h50w1000.html", "title": "H50W1000 deck floor | PEB Philippines", "href": "products-services/accessory-products/deck-floor-h50w1000.html"},
     // {"path": "/archive/hidden-pages/news-publications/articles/seico-breaks-ground-on-ready-built-factory-and-warehouse-project-in-hai-phong-3949.html", "title": "SEICO: BREAKS GROUND ON READY-BUILT FACTORY AND WAREHOUSE PROJECT IN HAI PHONG | PEB Philippines", "href": "archive/hidden-pages/news-publications/articles/seico-breaks-ground-on-ready-built-factory-and-warehouse-project-in-hai-phong-3949.html"},
     {"path": "/products-services/steel-structure/steel-structure-design-to-american-standards.html", "title": "Steel structure design to American standards | PEB Philippines", "href": "products-services/steel-structure/steel-structure-design-to-american-standards.html"},
-    {"path": "/projects/details/bac-giang-logistics-park-2-warehouse.html", "title": "BAC GIANG LOGISTICS PARK 2 WAREHOUSE | PEB Philippines", "href": "projects/details/bac-giang-logistics-park-2-warehouse.html"},
-    {"path": "/projects/details/concordia-international-school-hanoi.html", "title": "Concordia International School Hanoi | PEB Philippines", "href": "projects/details/concordia-international-school-hanoi.html"},
-    {"path": "/projects/details/steel-structure-and-high-tech-equipment-manufacturing-plant.html", "title": "STEEL STRUCTURE AND HIGH-TECH EQUIPMENT MANUFACTURING PLANT | PEB Philippines", "href": "projects/details/steel-structure-and-high-tech-equipment-manufacturing-plant.html"},
-    {"path": "/projects/details/hai-phong-outdoor-goods-factory.html", "title": "OUTDOOR GOODS FACTORY – HAI PHONG | PEB Philippines", "href": "projects/details/hai-phong-outdoor-goods-factory.html"},
-    {"path": "/projects/details/hoa-thanh-shoe-factory.html", "title": "HOA THANH SHOE FACTORY | PEB Philippines", "href": "projects/details/hoa-thanh-shoe-factory.html"},
-    {"path": "/projects/details/pt-da-nang.html", "title": "PT DA NANG | PEB Philippines", "href": "projects/details/pt-da-nang.html"},
-    {"path": "/projects/details/vina-feed-mill.html", "title": "Vina Feed Mill Factory | PEB Philippines", "href": "projects/details/vina-feed-mill.html"},
+    // {"path": "/archive/hidden-pages/project-details/bac-giang-logistics-park-2-warehouse.html", "title": "BAC GIANG LOGISTICS PARK 2 WAREHOUSE | PEB Philippines", "href": "archive/hidden-pages/project-details/bac-giang-logistics-park-2-warehouse.html"},
+    // {"path": "/archive/hidden-pages/project-details/concordia-international-school-hanoi.html", "title": "Concordia International School Hanoi | PEB Philippines", "href": "archive/hidden-pages/project-details/concordia-international-school-hanoi.html"},
+    // {"path": "/archive/hidden-pages/project-details/steel-structure-and-high-tech-equipment-manufacturing-plant.html", "title": "STEEL STRUCTURE AND HIGH-TECH EQUIPMENT MANUFACTURING PLANT | PEB Philippines", "href": "archive/hidden-pages/project-details/steel-structure-and-high-tech-equipment-manufacturing-plant.html"},
+    // {"path": "/archive/hidden-pages/project-details/hai-phong-outdoor-goods-factory.html", "title": "OUTDOOR GOODS FACTORY – HAI PHONG | PEB Philippines", "href": "archive/hidden-pages/project-details/hai-phong-outdoor-goods-factory.html"},
+    // {"path": "/archive/hidden-pages/project-details/hoa-thanh-shoe-factory.html", "title": "HOA THANH SHOE FACTORY | PEB Philippines", "href": "archive/hidden-pages/project-details/hoa-thanh-shoe-factory.html"},
+    // {"path": "/archive/hidden-pages/project-details/pt-da-nang.html", "title": "PT DA NANG | PEB Philippines", "href": "archive/hidden-pages/project-details/pt-da-nang.html"},
+    // {"path": "/archive/hidden-pages/project-details/vina-feed-mill.html", "title": "Vina Feed Mill Factory | PEB Philippines", "href": "archive/hidden-pages/project-details/vina-feed-mill.html"},
     {"path": "/philippine-partners/philippine-partners.html", "title": "Philippine Partners | PEB Philippines", "href": "philippine-partners/philippine-partners.html"},
     {"path": "/products-services/accessory-products/industrial-paint.html", "title": "Industrial paint | PEB Philippines", "href": "products-services/accessory-products/industrial-paint.html"},
     {"path": "/products-services/light-buildings.html", "title": "Light buildings | PEB Philippines", "href": "products-services/light-buildings.html"},
     {"path": "/shared/document-template.html", "title": "Product catalog | PEB Philippines", "href": "shared/document-template.html"},
     // {"path": "/archive/hidden-pages/news-publications/articles/industrial-building-steel-frame-design-4340.html", "title": "Industrial building steel frame design: process and common frame types 2026 | PEB Philippines", "href": "archive/hidden-pages/news-publications/articles/industrial-building-steel-frame-design-4340.html"},
     // {"path": "/archive/hidden-pages/news-publications/articles/pre-engineered-steel-building-design-4338.html", "title": "Pre-engineered steel building design | PEB Philippines", "href": "archive/hidden-pages/news-publications/articles/pre-engineered-steel-building-design-4338.html"},
-    {"path": "/projects/details/chadwick-international-school-in-vietnam.html", "title": "Chadwick International School in Vietnam | PEB Philippines", "href": "projects/details/chadwick-international-school-in-vietnam.html"}
+    // {"path": "/archive/hidden-pages/project-details/chadwick-international-school-in-vietnam.html", "title": "Chadwick International School in Vietnam | PEB Philippines", "href": "archive/hidden-pages/project-details/chadwick-international-school-in-vietnam.html"}
   ];
 
-  // ---- Offices & factories (network map on the About / Contact pages) --
+  // ---- Offices & factories (network map on the About page) --------------
+  // "footer": the name shown in the footer address slider; places without it are left out there.
   var network = {
     "office": [
       {
         "id": "quezon_city_branch",
+        "footer": "QUEZON CITY OFFICE",
         "name": {
           "en": "QUEZON CITY OFFICE"
         },
@@ -157,6 +160,7 @@
       },
       {
         "id": "philippines_branch",
+        "footer": "PASIG BRANCH",
         "name": {
           "en": "PASIG BRANCH"
         },
@@ -175,6 +179,7 @@
     "factory": [
       {
         "id": "factory_1",
+        "footer": "FACTORY NO. 1 (SEICO, VIETNAM)",
         "name": {
           "en": "FACTORY NO. 1"
         },
@@ -191,6 +196,7 @@
       },
       {
         "id": "factory_2",
+        "footer": "FACTORY NO. 2 (SEICO, VIETNAM)",
         "name": {
           "en": "FACTORY NO. 2"
         },
@@ -245,9 +251,6 @@
     network[group].forEach(function (place) { if (place.image) place.image = fromRoot(place.image); });
   });
 
-  // Current page address, e.g. "/lien-he.html" ("/" on the home page)
-  var here = root ? decodeURI(location.href.split(/[?#]/)[0]).replace(decodeURI(root), "") : "";
-  window.SEICO_PATH = here === "" || here === "index.html" ? "/" : "/" + here;
   window.SEICO_ROOT = root;
   window.SEICO_PAGES = pages;
   window.SEICO_NETWORK = network;
@@ -258,38 +261,113 @@
    PART 2 - SITE CODE  (menus, search, sliders, map, forms ...)
    ===================================================================== */
 (() => {
-  // client/src/lib/networkMap.ts
-  function initializeNetworkMap(root) {
-    const section = root.querySelector(".sei_network_map");
-    if (!section) return () => {
+  // ---- Shared helpers -----------------------------------------------------
+  const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  function isEmail(value) {
+    return EMAIL_PATTERN.test(value);
+  }
+  // Phone numbers (2026-11-19). Spaces, dashes, dots and brackets are ignored. Accepts Philippine
+  // mobiles (0917 832 0004, 917 832 0004, +63 917 832 0004), landlines ((02) 8552 6038, 8552 6038,
+  // provincial 0XX XXX XXXX) and foreign numbers written with + and the country code (8-15 digits).
+  const PHONE_MESSAGE = "Please enter a valid phone number, for example 0917 832 0004 or +63 917 832 0004.";
+  function isPhone(value) {
+    const compact = value.replace(/[\s().-]/g, "");
+    if (!/^\+?\d+$/.test(compact)) return false;
+    const digits = compact.replace(/^\+/, "");
+    if (/^(\d)\1+$/.test(digits)) return false;
+    if (digits.startsWith("63")) return digits.length === 11 || digits.length === 12;
+    if (compact.startsWith("+")) return digits.length >= 8 && digits.length <= 15;
+    if (digits.startsWith("09")) return digits.length === 11;
+    if (digits.startsWith("0")) return digits.length === 10 || digits.length === 11;
+    if (digits.startsWith("9")) return digits.length === 10;
+    return digits.length === 8 && digits.startsWith("8");
+  }
+  // "Details already given" memory, shared by the profile popup and the project details form,
+  // so filling in either one unlocks both. If the browser blocks storage, we simply ask again.
+  const DETAILS_KEY = "pebProjectDetailsGiven";
+  const detailsGiven = () => {
+    try { return window.localStorage.getItem(DETAILS_KEY) === "yes"; } catch (e) { return false; }
+  };
+  const rememberDetails = () => {
+    try { window.localStorage.setItem(DETAILS_KEY, "yes"); } catch (e) { /* storage blocked: ask again next time */ }
+  };
+  // Popup confirmation (2026-11-20): after the profile popup or the project details popup is sent,
+  // a check mark and a short "thank you" show for CONFIRM_MS, then the popup moves on by itself
+  // (the "Continue" button skips the wait). Styles: "POPUP CONFIRMATION" in main.css. Visitors who
+  // ask their device for less motion get no animation.
+  const CONFIRM_MS = 1800;
+  const confirmPanel = (titleId) => `
+          <div class="popup-confirm" hidden>
+            <svg class="popup-check" viewBox="0 0 52 52" aria-hidden="true" focusable="false"><circle cx="26" cy="26" r="23"/><path d="M15.5 27.5l7 7 14-15"/></svg>
+            <h3 class="popup-confirm-title" id="${titleId}" tabindex="-1"></h3>
+            <p class="popup-confirm-text" role="status"></p>
+            <button type="button" class="popup-confirm-next"></button>
+          </div>`;
+  // Fills in and shows the panel; calls next() after CONFIRM_MS or on the button. Returns a cancel function.
+  function showConfirm(panel, title, text, buttonLabel, next) {
+    panel.querySelector(".popup-confirm-title").textContent = title;
+    panel.querySelector(".popup-confirm-text").textContent = text;
+    const button = panel.querySelector(".popup-confirm-next");
+    button.textContent = buttonLabel;
+    let gone = false;
+    const go = () => { if (gone) return; gone = true; clearTimeout(timer); next(); };
+    button.onclick = go;
+    panel.hidden = false;
+    playIn(panel);
+    panel.querySelector(".popup-confirm-title").focus();
+    const timer = setTimeout(go, CONFIRM_MS);
+    return () => { gone = true; clearTimeout(timer); };
+  }
+  // Replays the "step in" animation on an element that has just been shown.
+  function playIn(element) {
+    element.classList.remove("popup-step-in");
+    void element.offsetWidth;   // restart the CSS animation
+    element.classList.add("popup-step-in");
+  }
+  const firstName = (text) => (text || "").trim().split(/\s+/)[0] || "";
+  // Runs a handler at most once per screen refresh (scroll and resize fire many times a second).
+  const oncePerFrame = (handler) => {
+    let queued = false;
+    return () => {
+      if (queued) return;
+      queued = true;
+      window.requestAnimationFrame(() => {
+        queued = false;
+        handler();
+      });
     };
-    const controller = new AbortController();
-    const listeners = [];
-    const language = "en";
-    let data;
-    const bind = (element, callback) => {
-      element.addEventListener("click", callback);
-      listeners.push(() => element.removeEventListener("click", callback));
-    };
-    const text = (selector, value) => {
+  };
+  const isEnterOrSpace = (event) => event.key === "Enter" || event.key === " ";
+
+  // ---- Office and factory map (About page, <div class="sei_network_map">) -----
+  // Pins and the list come from the "network" data in PART 1.
+  function setupNetworkMap() {
+    const section = document.querySelector(".sei_network_map");
+    const data = window.SEICO_NETWORK;
+    const pins = section && section.querySelector(".map-pins-container");
+    const list = section && section.querySelector("#locations-list-group");
+    if (!data || !pins || !list) return;
+    const setText = (selector, value) => {
       const element = section.querySelector(selector);
       if (element) element.textContent = value;
       return element;
     };
-    const details = (location) => {
-      text("#info-loc-name", location.name[language] || location.name.vi);
-      text("#info-loc-address", location.address[language] || location.address.vi);
-      const phone = text("#info-loc-phone", location.phone || "");
-      const email = text("#info-loc-email", location.email || "");
-      if (phone == null ? void 0 : phone.closest("li")) phone.closest("li").style.display = location.phone ? "flex" : "none";
-      if (email == null ? void 0 : email.closest("li")) email.closest("li").style.display = location.email ? "flex" : "none";
+    const showRow = (element, visible) => {
+      const row = element && element.closest("li");
+      if (row) row.style.display = visible ? "flex" : "none";
+    };
+    const details = (place) => {
+      setText("#info-loc-name", place.name.en);
+      setText("#info-loc-address", place.address.en);
+      showRow(setText("#info-loc-phone", place.phone || ""), !!place.phone);
+      showRow(setText("#info-loc-email", place.email || ""), !!place.email);
       const image = section.querySelector("#info-loc-image");
       if (image) {
-        // a location without a photo ("image": "") hides the photo area
+        // a place without a photo ("image": "") hides the photo area
         const imageBox = image.closest(".info-image-container") || image;
-        if (location.image) {
-          image.src = location.image;
-          image.alt = location.name[language] || location.name.vi;
+        if (place.image) {
+          image.src = place.image;
+          image.alt = place.name.en;
           imageBox.style.display = "";
         } else {
           image.removeAttribute("src");
@@ -297,132 +375,75 @@
           imageBox.style.display = "none";
         }
       }
-      section.querySelectorAll(".map-pin").forEach((pin) => pin.classList.toggle("active", pin.id === `pin-${location.id}`));
-      section.querySelectorAll(".list-group-item").forEach((item) => item.classList.toggle("active-item", item.id === `list-item-${location.id}`));
+      section.querySelectorAll(".map-pin").forEach((pin) => pin.classList.toggle("active", pin.id === `pin-${place.id}`));
+      section.querySelectorAll(".list-group-item").forEach((item) => item.classList.toggle("active-item", item.id === `list-item-${place.id}`));
+    };
+    // A pin or list entry: works with a click, Enter or Space.
+    const control = (className, id, place) => {
+      const element = document.createElement("div");
+      element.className = className;
+      element.id = id;
+      element.tabIndex = 0;
+      element.setAttribute("role", "button");
+      element.addEventListener("click", () => details(place));
+      element.addEventListener("keydown", (event) => {
+        if (!isEnterOrSpace(event)) return;
+        event.preventDefault();
+        details(place);
+      });
+      return element;
     };
     const render = (tab) => {
-      const pins = section.querySelector(".map-pins-container");
-      const list = section.querySelector("#locations-list-group");
-      if (!pins || !list || !data[tab]) return;
+      const places = data[tab];
+      if (!places) return;
       pins.replaceChildren();
       list.replaceChildren();
-      for (const location of data[tab]) {
-        const pin = document.createElement("div");
-        pin.className = "map-pin";
-        pin.id = `pin-${location.id}`;
-        pin.style.left = `${location.coords.x}%`;
-        pin.style.top = `${location.coords.y}%`;
-        pin.title = location.name[language] || location.name.vi;
-        pin.tabIndex = 0;
-        pin.setAttribute("role", "button");
-        pin.setAttribute("aria-label", pin.title);
+      places.forEach((place) => {
+        const name = place.name.en;
+        const pin = control("map-pin", `pin-${place.id}`, place);
+        pin.style.left = `${place.coords.x}%`;
+        pin.style.top = `${place.coords.y}%`;
+        pin.title = name;
+        pin.setAttribute("aria-label", name);
         pin.innerHTML = '<i class="fa fa-map-marker" aria-hidden="true"></i>';
-        const item = document.createElement("div");
-        item.className = "list-group-item";
-        item.id = `list-item-${location.id}`;
-        item.textContent = pin.title;
-        item.tabIndex = 0;
-        item.setAttribute("role", "button");
-        bind(pin, () => details(location));
-        bind(item, () => details(location));
-        [pin, item].forEach((control) => {
-          const handler = (event) => {
-            if (event.key === "Enter" || event.key === " ") {
-              event.preventDefault();
-              details(location);
-            }
-          };
-          control.addEventListener("keydown", handler);
-          listeners.push(() => control.removeEventListener("keydown", handler));
-        });
+        const item = control("list-group-item", `list-item-${place.id}`, place);
+        item.textContent = name;
         pins.appendChild(pin);
         list.appendChild(item);
-      }
-      if (data[tab][0]) details(data[tab][0]);
+      });
+      if (places[0]) details(places[0]);
       section.querySelectorAll(".tab-btn[data-tab]").forEach((button) => {
-        var _a2;
-        return (_a2 = button.parentElement) == null ? void 0 : _a2.classList.toggle("active", button.dataset.tab === tab);
+        if (button.parentElement) button.parentElement.classList.toggle("active", button.dataset.tab === tab);
       });
     };
-    const embedded = window.SEICO_NETWORK;
-    const networkPromise = embedded ? Promise.resolve(embedded) : fetch("/content/network.json", { signal: controller.signal }).then((response) => {
-      if (!response.ok) throw new Error("Network data unavailable");
-      return response.json();
-    });
-    networkPromise.then((network) => {
-      if (!section.isConnected || controller.signal.aborted) return;
-      data = network;
-      render("office");
-      section.querySelectorAll(".tab-btn[data-tab]").forEach((button) => bind(button, (event) => {
-        event.preventDefault();
-        const tab = button.dataset.tab;
-        if (tab === "office" || tab === "factory") render(tab);
-      }));
-    }).catch(() => {
-    });
-    return () => {
-      controller.abort();
-      listeners.forEach((remove) => remove());
-    };
+    render("office");
+    section.querySelectorAll(".tab-btn[data-tab]").forEach((button) => button.addEventListener("click", (event) => {
+      event.preventDefault();
+      const tab = button.dataset.tab;
+      if (tab === "office" || tab === "factory") render(tab);
+    }));
   }
 
-  // client/src/lib/articleExtras.ts
-  function initializeArticleExtras(root) {
-    const removers = [];
-    const bind = (element, callback) => {
-      element.addEventListener("click", callback);
-      removers.push(() => element.removeEventListener("click", callback));
-    };
-    root.querySelectorAll(".item-slides-image-project-detail").forEach((thumbnail) => bind(thumbnail, () => {
-      const image = thumbnail.querySelector("img");
-      if (!image) return;
-      const full = root.querySelector(".image_full img");
-      const figure = root.querySelector(".image_full figure");
-      if (full) {
-        full.src = image.src;
-        full.setAttribute("xoriginal", image.src);
-      }
-      if (figure) figure.style.backgroundImage = `url("${image.src}")`;
-    }));
-    root.querySelectorAll(".has-flyout-item").forEach((item) => {
-      const submenu = item.querySelector(".project-flyout-menu");
-      if (!submenu) return;
-      const open = () => {
-        submenu.style.display = "block";
-      };
-      const close = () => {
-        submenu.style.display = "none";
-      };
-      item.addEventListener("mouseenter", open);
-      item.addEventListener("mouseleave", close);
-      item.addEventListener("focusin", open);
-      item.addEventListener("focusout", close);
-      removers.push(() => {
-        item.removeEventListener("mouseenter", open);
-        item.removeEventListener("mouseleave", close);
-        item.removeEventListener("focusin", open);
-        item.removeEventListener("focusout", close);
-      });
-    });
-    const article = root.querySelector(".sei_intro");
-    if (!article || article.querySelector(".toc-container")) return () => removers.forEach((remove) => remove());
-    const listCards = [...article.querySelectorAll("article.box-two, .row article")].filter((card) => !card.closest(".owl-carousel"));
-    if (listCards.length) return () => removers.forEach((remove) => remove());
-    const headings = [...article.querySelectorAll("h2,h3,h4")].filter((heading) => !heading.closest(".owl-carousel"));
-    if (headings.length < 2) return () => removers.forEach((remove) => remove());
-        const container = document.createElement("div");
+  // ---- Table of contents for articles (class="sei_intro"), built from the headings -----
+  function setupTableOfContents() {
+    const article = document.querySelector(".sei_intro");
+    if (!article || article.querySelector(".toc-container")) return;
+    const outsideSliders = (element) => !element.closest(".owl-carousel");
+    if ([...article.querySelectorAll("article.box-two, .row article")].some(outsideSliders)) return;   // lists of cards get none
+    const headings = [...article.querySelectorAll("h2,h3,h4")].filter(outsideSliders);
+    if (headings.length < 2) return;
+    const container = document.createElement("div");
     container.className = "toc-container";
     const header = document.createElement("div");
     header.className = "toc-header";
-    header.innerHTML = `<span class="toc-title"><i class="fa fa-list-ul" aria-hidden="true"></i> Table of Contents</span><span class="toc-toggle">[Hide]</span>`;
+    header.innerHTML = '<span class="toc-title"><i class="fa fa-list-ul" aria-hidden="true"></i> Table of Contents</span><span class="toc-toggle">[Hide]</span>';
     const list = document.createElement("ul");
     list.className = "toc-list";
     headings.forEach((heading, index) => {
-      var _a2;
-      const text = (_a2 = heading.textContent) == null ? void 0 : _a2.trim();
+      const text = (heading.textContent || "").trim();
       if (!text) return;
       if (!heading.id) {
-        let slug = text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/gi, "d").toLowerCase().replace(/[^a-z0-9 -]/g, "").replace(/\s+/g, "-").replace(/-+/g, "-");
+        let slug = text.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9 -]/g, "").replace(/\s+/g, "-").replace(/-+/g, "-");
         if (!slug || document.getElementById(slug)) slug = `toc-section-${index}`;
         heading.id = slug;
       }
@@ -434,74 +455,24 @@
       item.appendChild(link);
       list.appendChild(item);
     });
-    bind(header, () => {
-      const hidden = list.hidden = !list.hidden;
+    header.addEventListener("click", () => {
+      list.hidden = !list.hidden;
       const toggle = header.querySelector(".toc-toggle");
-      if (toggle) toggle.textContent = hidden ? "[Show]" : "[Hide]";
+      if (toggle) toggle.textContent = list.hidden ? "[Show]" : "[Hide]";
     });
     container.append(header, list);
     const anchor = article.querySelector("h5");
     if (anchor) anchor.after(container);
     else article.prepend(container);
-    removers.push(() => container.remove());
-    return () => removers.forEach((remove) => remove());
   }
 
-  // client/src/lib/referenceInteractions.ts
-  var OFFICE_DATA = [
-    {
-      name: "QUEZON CITY OFFICE",
-      address: "Delta Unit 204, L & LV Benitez Bldg., 53 N. Ramirez St., Don Manuel, Quezon City"
-    },
-    {
-      name: "PASIG BRANCH",
-      address: "Room 305 Semicon Corporate Building, 50 Marcos Highway, Brgy. Dela Paz, Pasig City"
-    },
-    {
-      name: "FACTORY NO. 1 (SEICO, VIETNAM)",
-      address: "National Highway 5, Mao Dien commune, Hai Phong City, Vietnam"
-    },
-    {
-      name: "FACTORY NO. 2 (SEICO, VIETNAM)",
-      address: "Lot CN7-2, Tan Truong Industrial Park, Mao Dien commune, Hai Phong City, Vietnam"
-    }
-  ];
-  function asWindow() {
-    return typeof window === "undefined" ? null : window;
-  }
-  function getJQuery() {
-    const win = asWindow();
-    return (win == null ? void 0 : win.jQuery) || (win == null ? void 0 : win.$) || null;
-  }
-  function hasJQueryPlugin($, name) {
-    return Boolean($ && $.fn && typeof $.fn[name] === "function");
-  }
-  function addClassToggle(element, className, force) {
-    if (force === void 0) element.classList.toggle(className);
-    else element.classList.toggle(className, force);
-  }
-  function absoluteOrRelativePath(raw) {
-    try {
-      const url = new URL(raw, window.location.href);
-      return `${url.pathname}${url.search}${url.hash}`;
-    } catch (e) {
-      return raw;
-    }
-  }
-  function readFieldValue(field) {
-    return field.value.trim();
-  }
-  function isEmail(value) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-  }
-  function escapeMailPart(value) {
-    return encodeURIComponent(value.replace(/[\r\n]+/g, " ").trim());
-  }
+  // ---- Footer address slider: the places in PART 1 that have a "footer" name -----
   function renderOffices(carousel) {
     if (carousel.childElementCount > 0) return;
-    const documentRef = carousel.ownerDocument;
-    OFFICE_DATA.forEach((office) => {
-      const item = documentRef.createElement("div");
+    const network = window.SEICO_NETWORK || {};
+    const places = [...(network.office || []), ...(network.factory || [])].filter((place) => place.footer);
+    places.forEach((place) => {
+      const item = document.createElement("div");
       item.className = "footer-office-item";
       item.innerHTML = `
       <div class="footer-office-header">
@@ -511,57 +482,28 @@
         <span class="footer-office-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></span>
         <p class="footer-office-address"></p>
       </div>`;
-      const title = item.querySelector(".footer-office-title");
-      const address = item.querySelector(".footer-office-address");
-      if (title) title.textContent = office.name;
-      if (address) address.textContent = office.address;
+      item.querySelector(".footer-office-title").textContent = place.footer;
+      item.querySelector(".footer-office-address").textContent = place.address.en;
       carousel.appendChild(item);
     });
   }
-  function initializeReferenceInteractions(root, options) {
-    const cleanups = [];
-    const timers = /* @__PURE__ */ new Set();
-    const observers = [];
-    const jqInstances = [];
-    const swipers = [];
-    const win = asWindow();
-    const documentRef = root.ownerDocument || (typeof document !== "undefined" ? document : null);
-    const body = documentRef == null ? void 0 : documentRef.body;
-    if (!documentRef || !win) return () => void 0;
-    cleanups.push(initializeNetworkMap(root));
-    cleanups.push(initializeArticleExtras(root));
-    const listen = (target, type, handler, eventOptions) => {
-      target.addEventListener(type, handler, eventOptions);
-      cleanups.push(() => target.removeEventListener(type, handler, eventOptions));
-    };
-    const timeout = (callback, delay) => {
-      const id = win.setTimeout(() => {
-        timers.delete(id);
-        callback();
-      }, delay);
-      timers.add(id);
-      return id;
-    };
-    root.querySelectorAll(".thumbnail-lazy[data-src]").forEach((container) => {
-      const source = container.getAttribute("data-src");
-      if (!source || container.querySelector("img")) return;
-      const image = documentRef.createElement("img");
-      image.src = source;
-      image.alt = container.getAttribute("data-alt") || "";
-      container.appendChild(image);
-      container.classList.add("loaded");
+
+  // ---- Menus, search buttons, forms, sliders, logo popup, picture viewer, counters (every page) -----
+  function setupPageInteractions() {
+    const body = document.body;
+    const $ = window.jQuery;
+    const on = (selector, type, handler) => document.querySelectorAll(selector).forEach((element) => element.addEventListener(type, (event) => handler(event, element)));
+
+    // Phone menu: open, close, and the +/- toggles of its sub-menus.
+    on("#vtc-load-menu", "click", (event) => {
+      event.preventDefault();
+      body.classList.add("open");
     });
-    const openMenu = () => body == null ? void 0 : body.classList.add("open");
-    const closeMenu = () => body == null ? void 0 : body.classList.remove("open");
-    root.querySelectorAll("#vtc-load-menu").forEach((button) => listen(button, "click", (event) => {
+    on(".close-small-menu", "click", (event) => {
       event.preventDefault();
-      openMenu();
-    }));
-    root.querySelectorAll(".close-small-menu").forEach((button) => listen(button, "click", (event) => {
-      event.preventDefault();
-      closeMenu();
-    }));
-    root.querySelectorAll(".mobile-nav__toggle-open, .mobile-nav__toggle-close").forEach((toggle) => listen(toggle, "click", (event) => {
+      body.classList.remove("open");
+    });
+    on(".mobile-nav__toggle-open, .mobile-nav__toggle-close", "click", (event, toggle) => {
       event.preventDefault();
       event.stopPropagation();
       const item = toggle.closest("li");
@@ -573,261 +515,124 @@
       toggle.classList.toggle("fa-minus", isOpen);
       toggle.classList.toggle("icon-plus", !isOpen);
       toggle.classList.toggle("icon-minus", isOpen);
-    }));
-    root.querySelectorAll("a.prevent-click").forEach((anchor) => listen(anchor, "click", (event) => event.preventDefault()));
-    root.querySelectorAll(".mobile-link-header > a.prevent-click").forEach((anchor) => listen(anchor, "click", () => {
-      const icon = anchor.parentElement.querySelector("i");
+    });
+    on("a.prevent-click", "click", (event) => event.preventDefault());
+    on(".mobile-link-header > a.prevent-click", "click", (event, anchor) => {
+      const icon = anchor.parentElement && anchor.parentElement.querySelector("i");
       if (icon) icon.click();
-    }));
-    const searchOpeners = root.querySelectorAll(".search-open, .search-button");
-    searchOpeners.forEach((button) => listen(button, "click", (event) => {
-      event.preventDefault();
-      options.onSearch();
-    }));
-    root.querySelectorAll('form[role="search"], .vtc-small-menu form[action*="search"], form[action="/search"]').forEach((form) => listen(form, "submit", (event) => {
-      event.preventDefault();
-      options.onSearch();
-    }));
-    root.querySelectorAll(".search-close").forEach((button) => listen(button, "click", (event) => {
-      event.preventDefault();
-      root.querySelectorAll(".show-search").forEach((element) => element.classList.remove("open"));
-    }));
-    root.querySelectorAll(".btn-top").forEach((button) => listen(button, "click", (event) => {
-      event.preventDefault();
-      win.scrollTo({ top: 0, behavior: "smooth" });
-    }));
-    const $ = getJQuery();
-    root.querySelectorAll('select[name="prcareer"], select[name="prcountry"], select[data-project-filter], [data-project-filter-select]').forEach((select) => {
-      if (select.closest("#projects-results")) return;
-      listen(select, "change", () => {
-        const name = select.getAttribute("name") || select.getAttribute("data-param") || select.getAttribute("data-project-filter") || "prcareer";
-        const value = select.value;
-        if (!value) return;
-        const form = select.closest("form");
-        const base = (form == null ? void 0 : form.getAttribute("action")) || "/du-an.html";
-        const url = new URL(base, win.location.href);
-        url.searchParams.set(name, value);
-        options.navigate(absoluteOrRelativePath(url.toString()));
-      });
     });
-    const careerItems = Array.from(root.querySelectorAll(".career-item"));
-    const moreButton = root.querySelector("#load-more-careers");
-    if (moreButton && careerItems.length > 9) {
-      careerItems.slice(9).forEach((item) => {
-        item.style.display = "none";
-      });
-      moreButton.style.display = "";
-      listen(moreButton, "click", (event) => {
-        event.preventDefault();
-        careerItems.slice(9).forEach((item) => {
-          item.style.display = "";
-        });
-        moreButton.style.display = "none";
-      });
-    }
-    root.querySelectorAll(".show-modal[data-link], [data-link].dowload, [data-link].download, [data-link].dowload-profile").forEach((trigger) => {
-      listen(trigger, "click", (event) => {
-        event.preventDefault();
-        const link = trigger.getAttribute("data-link");
-        if (!link) return;
-        const download = documentRef.createElement("a");
-        download.href = link;
-        download.setAttribute("download", "");
-        download.rel = "noopener";
-        download.target = "_blank";
-        documentRef.body.appendChild(download);
-        download.click();
-        download.remove();
-      });
+
+    // Search: the magnifier buttons and search boxes open the site search.
+    on(".search-open, .search-button", "click", (event) => {
+      event.preventDefault();
+      openSearch();
     });
-    root.querySelectorAll('form:not([role="search"]):not([action="/search"]):not([data-native-form])').forEach((form) => {
-      listen(form, "submit", (event) => {
+    on('form[role="search"], .vtc-small-menu form[action*="search"], form[action="/search"]', "submit", (event) => {
+      event.preventDefault();
+      openSearch();
+    });
+    on(".search-close", "click", (event) => {
+      event.preventDefault();
+      document.querySelectorAll(".show-search").forEach((element) => element.classList.remove("open"));
+    });
+    on(".btn-top", "click", (event) => {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Page forms (not search, not the popups, which check themselves): check the fields, then hand
+    // connected forms to google-forms.js. A form that isn't connected yet only shows a notice.
+    document.querySelectorAll('form:not([role="search"]):not([action="/search"]):not([data-native-form])').forEach((form) => {
+      // Phone boxes: drop anything that can't be part of a phone number while typing, and clear
+      // the "valid phone number" message once the visitor edits the number.
+      form.querySelectorAll('input[type="tel"]').forEach((tel) => tel.addEventListener("input", () => {
+        const cleaned = tel.value.replace(/[^\d+\s().-]/g, "");
+        if (cleaned !== tel.value) tel.value = cleaned;
+        tel.setCustomValidity("");
+      }));
+      form.addEventListener("submit", (event) => {
         event.preventDefault();
         event.stopPropagation();
-        const fields = Array.from(form.elements).filter((element) => {
-          return element instanceof HTMLInputElement || element instanceof HTMLSelectElement || element instanceof HTMLTextAreaElement;
-        });
-        let valid = true;
         let firstInvalid = null;
-        fields.forEach((field) => {
+        Array.from(form.elements).forEach((field) => {
+          if (!(field instanceof HTMLInputElement || field instanceof HTMLSelectElement || field instanceof HTMLTextAreaElement)) return;
+          const value = field.value.trim();
           const required = field.required || field.getAttribute("aria-required") === "true";
-          const value = readFieldValue(field);
           const emailField = field.type === "email" || field.name.toLowerCase().includes("email");
-          const invalid = required && !value || emailField && value !== "" && !isEmail(value);
+          const invalid = (required && !value) ||
+            (value !== "" && emailField && !isEmail(value)) ||
+            (value !== "" && field.type === "tel" && !isPhone(value));
           field.setAttribute("aria-invalid", String(invalid));
-          if (invalid) {
-            valid = false;
-            if (!firstInvalid) firstInvalid = field;
-          }
+          if (invalid && !firstInvalid) firstInvalid = field;
         });
-        if (!valid) {
-          const invalidControl = firstInvalid;
-          invalidControl == null ? void 0 : invalidControl.focus();
+        if (firstInvalid) {
+          firstInvalid.focus();
+          // A wrong phone number gets the browser's own message bubble, like a missing required field.
+          if (firstInvalid.type === "tel" && firstInvalid.value.trim() !== "" && firstInvalid.reportValidity) {
+            firstInvalid.setCustomValidity(PHONE_MESSAGE);
+            firstInvalid.reportValidity();
+          }
           return;
         }
-        const isCareer = /career|recruit|apply|hr@/i.test(`${form.className} ${form.id} ${form.textContent || ""}`);
-        const recipient = form.getAttribute("data-email") || (isCareer ? "hr@seico.vn" : options.contactEmail);
-        const subject = form.getAttribute("data-subject") || (isCareer ? "Job application - PEB Philippines" : "Contact PEB Philippines");
-        const bodyLines = fields.filter((field) => field.name && field.type !== "submit" && field.type !== "button" && field.type !== "file").map((field) => `${field.name}: ${readFieldValue(field)}`).filter((line) => !line.endsWith(": "));
-        const mailto = `mailto:${encodeURIComponent(recipient)}?subject=${escapeMailPart(subject)}&body=${escapeMailPart(bodyLines.join("\n"))}`;
-        const note = form.querySelector("[data-replica-form-note], .replica-form-template-note") || documentRef.createElement("p");
+        // Google Forms hand-off: forms connected in assets/js/google-forms.js are sent from there.
+        if (window.PEBGoogleForms && window.PEBGoogleForms.handles(form)) {
+          window.PEBGoogleForms.send(form);
+          return;
+        }
+        const note = form.querySelector("[data-replica-form-note], .replica-form-template-note") || document.createElement("p");
         note.setAttribute("data-replica-form-note", "true");
         note.setAttribute("role", "status");
-        note.textContent = "This is a front-end form template. Connect your own backend or email service to receive submissions. No information has been sent.";
+        note.textContent = "This form is not connected yet. No information has been sent; please call 0917-832-0004 or email inquiry@pebphilippines.com.";
         if (!note.parentElement) form.appendChild(note);
-        void mailto;
       });
     });
-    if ($) {
-      const owlSettings = (element) => {
-        if (element.classList.contains("footer-offices-carousel")) {
-          return {
-            items: 3,
-            loop: true,
-            margin: 20,
-            nav: false,
-            dots: true,
-            dotsEach: 1,
-            responsiveClass: true,
-            autoplay: true,
-            autoplayTimeout: 4e3,
-            autoplayHoverPause: true,
-            responsive: { 0: { items: 1 }, 480: { items: 2 }, 992: { items: 3 } }   // fewer than the 4 addresses, so it always slides
-          };
-        }
-        if (element.classList.contains("sei_introssss")) {
-          return {
-            items: 6,
-            loop: true,
-            margin: 15,
-            nav: true,
-            dots: false,
-            navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-            responsiveClass: true,
-            autoplay: true,
-            autoplayTimeout: 2e3,
-            autoplayHoverPause: true,
-            responsive: { 0: { items: 2 }, 450: { items: 2 }, 768: { items: 3 }, 769: { items: 4 }, 1e3: { items: 6 } }
-          };
-        }
-        if (["list-slide", "page_proj"].some((name) => element.classList.contains(name))) {
-          const isList = element.classList.contains("list-slide");
-          return {
-            items: 4,
-            loop: !isList,
-            margin: 15,
-            nav: true,
-            dots: false,
-            navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-            autoplay: true,
-            autoplayTimeout: 5e3,
-            autoplayHoverPause: true,
-            responsive: { 0: { items: isList ? 2 : 1 }, 450: { items: isList ? 2 : 1 }, 768: { items: 3 }, 769: { items: 4 } }
-          };
-        }
-        if (element.classList.contains("certificates-slider")) {
-          return {
-            items: 4,
-            loop: true,
-            margin: 20,
-            nav: true,
-            dots: false,
-            navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-            responsiveClass: true,
-            autoplay: true,
-            autoplayTimeout: 4e3,
-            autoplayHoverPause: true,
-            responsive: { 0: { items: 1, margin: 10 }, 480: { items: 2, margin: 15 }, 768: { items: 3, margin: 20 }, 992: { items: 4, margin: 20 } }
-          };
-        }
-        if (element.classList.contains("sei_intro")) {
-          return {
-            items: 3,
-            loop: true,
-            margin: 30,
-            nav: true,
-            dots: false,
-            navText: ["<i></i>", "<i></i>"],
-            responsiveClass: true,
-            lazyContent: true,
-            autoplay: true,
-            autoplayTimeout: 5e3,
-            autoplayHoverPause: true,
-            center: false,
-            responsive: { 0: { items: 1 }, 450: { items: 1 }, 768: { items: 2 }, 769: { items: 3, nav: true } }
-          };
-        }
-        if (element.classList.contains("sei_proj")) {
-          return {
-            items: 4,
-            loop: true,
-            nav: true,
-            dots: false,
-            navText: ["<i></i>", "<i></i>"],
-            responsiveClass: true,
-            lazyContent: true,
-            autoplay: true,
-            autoplayTimeout: 5e3,
-            autoplayHoverPause: true,
-            center: false,
-            responsive: { 0: { items: 1 }, 450: { items: 1 }, 768: { items: 2 }, 769: { items: 4, nav: true } }
-          };
-        }
-        return {
-          items: 4,
-          loop: true,
-          margin: 20,
-          nav: true,
-          dots: false,
-          responsiveClass: true,
-          autoplay: true,
-          autoplayTimeout: 4e3,
-          autoplayHoverPause: true,
-          responsive: { 0: { items: 1 }, 480: { items: 2 }, 768: { items: 3 }, 992: { items: 4 } }
-        };
-      };
-      const owlElements = [];
-      root.querySelectorAll(".sei_intro.owl-carousel, .sei_proj.owl-carousel, .certificates-slider, .sei_introssss, .list-slide, .page_proj, .footer-offices-carousel").forEach((element) => {
-        if (!owlElements.includes(element)) owlElements.push(element);
-      });
-      owlElements.forEach((element) => {
-        if (element.id === "footerOfficesCarousel") renderOffices(element);
-        if (!hasJQueryPlugin($, "owlCarousel")) return;
+
+    // Sliders (Owl Carousel): the footer address slider (every page) and the certificates (Home).
+    const arrows = ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'];
+    const SLIDERS = {
+      ".footer-offices-carousel": {
+        items: 3, loop: true, margin: 20, nav: false, dots: true, dotsEach: 1, responsiveClass: true,
+        autoplay: true, autoplayTimeout: 4e3, autoplayHoverPause: true,
+        responsive: { 0: { items: 1 }, 480: { items: 2 }, 992: { items: 3 } }   // fewer than the 4 addresses, so it always slides
+      },
+      ".certificates-slider": {
+        items: 4, loop: true, margin: 20, nav: true, dots: false, navText: arrows, responsiveClass: true,
+        autoplay: true, autoplayTimeout: 4e3, autoplayHoverPause: true,
+        responsive: { 0: { items: 1, margin: 10 }, 480: { items: 2, margin: 15 }, 768: { items: 3, margin: 20 }, 992: { items: 4, margin: 20 } }
+      }
+    };
+    document.querySelectorAll("#footerOfficesCarousel").forEach(renderOffices);
+    if ($ && $.fn && typeof $.fn.owlCarousel === "function") {
+      Object.keys(SLIDERS).forEach((selector) => document.querySelectorAll(selector).forEach((element) => {
         try {
-          $(element).owlCarousel(owlSettings(element));
-          jqInstances.push({ element, kind: "owl", $ });
-        } catch (e) {
-        }
-      });
-    } else {
-      root.querySelectorAll("#footerOfficesCarousel").forEach(renderOffices);
+          $(element).owlCarousel(SLIDERS[selector]);
+        } catch (e) { /* a broken slider must not stop the rest of the page */ }
+      }));
     }
-    const SwiperConstructor = win.Swiper;
-    const partnerContainer = root.querySelector(".mobile-swiper-container");
-    const partnerWrapper = root.querySelector("ul.partner");
+
+    // Customers & partners logos (Home): a sliding row on phones (Swiper), a grid on wider screens.
+    const partnerContainer = document.querySelector(".mobile-swiper-container");
+    const partnerWrapper = document.querySelector("ul.partner");
     const partnerSlides = partnerWrapper ? Array.from(partnerWrapper.children) : [];
     let partnerSwiper = null;
     const togglePartnerSwiper = () => {
-      var _a2;
-      if (!partnerContainer || !partnerWrapper || !SwiperConstructor) return;
-      if (win.innerWidth <= 767 && !partnerSwiper) {
+      if (window.innerWidth <= 767 && !partnerSwiper) {
         partnerContainer.classList.add("swiper");
         partnerWrapper.classList.add("swiper-wrapper");
         partnerSlides.forEach((slide) => slide.classList.add("swiper-slide"));
         try {
-          partnerSwiper = new SwiperConstructor(partnerContainer, {
+          partnerSwiper = new window.Swiper(partnerContainer, {
             slidesPerView: 2,
             spaceBetween: 15,
             loop: true,
             autoplay: { delay: 1e3, disableOnInteraction: false },
             pagination: { el: ".mobile-swiper-container .swiper-pagination", clickable: true }
           });
-          swipers.push(partnerSwiper);
         } catch (e) {
           partnerSwiper = null;
         }
-      } else if (win.innerWidth > 767 && partnerSwiper) {
-        (_a2 = partnerSwiper.destroy) == null ? void 0 : _a2.call(partnerSwiper, true, true);
+      } else if (window.innerWidth > 767 && partnerSwiper) {
+        if (partnerSwiper.destroy) partnerSwiper.destroy(true, true);
         partnerSwiper = null;
         partnerContainer.classList.remove("swiper");
         partnerWrapper.classList.remove("swiper-wrapper");
@@ -838,23 +643,32 @@
         partnerWrapper.removeAttribute("style");
       }
     };
-    if (partnerContainer && partnerWrapper && SwiperConstructor) {
+    if (partnerContainer && partnerWrapper && window.Swiper) {
       togglePartnerSwiper();
-      listen(win, "resize", togglePartnerSwiper);
+      window.addEventListener("resize", oncePerFrame(togglePartnerSwiper));
     }
-    // Customers & partners: clicking a logo shows it larger in the popup already in the page.
-    // The listener sits on the whole list so the copies the phone slider makes also work.
-    const partnerModal = root.querySelector("#partnerLogoModal");
-    if (partnerModal && partnerWrapper) {
-      const modalImg = partnerModal.querySelector("#partnerModalImg");
-      const modalTitle = partnerModal.querySelector("#partnerModalTitle");
-      const modalClose = partnerModal.querySelector("#partnerModalClose");
-      const modalLink = partnerModal.querySelector("#partnerModalLink");
+
+    // Clicking a partner logo shows it larger in the popup already in the page. The listener sits on
+    // the whole list so the copies the phone slider makes also work.
+    const partnerModal = document.querySelector("#partnerLogoModal");
+    // The popup's picture is created on first use, so the page has no empty <img> waiting for a source.
+    const modalImgBox = partnerModal && partnerModal.querySelector(".partner-modal-img-box");
+    const modalTitle = partnerModal && partnerModal.querySelector("#partnerModalTitle");
+    const modalClose = partnerModal && partnerModal.querySelector("#partnerModalClose");
+    const modalLink = partnerModal && partnerModal.querySelector("#partnerModalLink");
+    if (partnerWrapper && modalImgBox && modalTitle && modalClose) {
       let lastLogo = null;
+      let modalImg = null;
       const openLogo = (logo) => {
         const img = logo.querySelector("img");
         if (!img) return;
         lastLogo = logo;
+        if (!modalImg) {
+          modalImg = document.createElement("img");
+          modalImg.id = "partnerModalImg";
+          modalImg.decoding = "async";
+          modalImgBox.appendChild(modalImg);
+        }
         modalImg.src = img.src;
         modalImg.alt = img.alt;
         modalTitle.textContent = img.alt;
@@ -887,7 +701,7 @@
         partnerModal.setAttribute("aria-hidden", "true");
         if (lastLogo && lastLogo.isConnected) lastLogo.focus();
       };
-      listen(partnerWrapper, "click", (event) => {
+      partnerWrapper.addEventListener("click", (event) => {
         // a click anywhere in a logo's box counts, not only on the logo picture itself
         const box = event.target.closest("ul.partner > li");
         const logo = event.target.closest("a.partner-logo") || (box ? box.querySelector("a.partner-logo") : null);
@@ -895,187 +709,119 @@
         event.preventDefault();
         openLogo(logo);
       });
-      listen(partnerWrapper, "keydown", (event) => {
+      partnerWrapper.addEventListener("keydown", (event) => {
         const logo = event.target.closest("a.partner-logo");
-        if (!logo || (event.key !== "Enter" && event.key !== " ")) return;
+        if (!logo || !isEnterOrSpace(event)) return;
         event.preventDefault();
         openLogo(logo);
       });
-      listen(modalClose, "click", closeLogo);
+      modalClose.addEventListener("click", closeLogo);
       // "View this project on seico.vn": close the logo popup; the project details form takes over from here.
-      if (modalLink) listen(modalLink, "click", () => setTimeout(closeLogo, 0));
-      listen(partnerModal.querySelector(".partner-modal-backdrop"), "click", closeLogo);
-      listen(documentRef, "keydown", (event) => {
+      if (modalLink) modalLink.addEventListener("click", () => setTimeout(closeLogo, 0));
+      const backdrop = partnerModal.querySelector(".partner-modal-backdrop");
+      if (backdrop) backdrop.addEventListener("click", closeLogo);
+      document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") closeLogo();
       });
     }
-    const fancybox = win.Fancybox;
+
+    // Picture viewer: Fancybox where the page loads it, otherwise a simple built-in viewer.
     const lightboxSelector = "[data-fancybox], .certificate-item, .footer-certificates a, .footer-certifications a";
-    let nativeLightbox = null;
-    const closeNativeLightbox = () => {
-      nativeLightbox == null ? void 0 : nativeLightbox.remove();
-      nativeLightbox = null;
-    };
-    if (fancybox == null ? void 0 : fancybox.bind) {
+    if (window.Fancybox && window.Fancybox.bind) {
       try {
-        fancybox.bind(lightboxSelector, {});
-        cleanups.push(() => {
-          var _a2;
-          return (_a2 = fancybox.unbind) == null ? void 0 : _a2.call(fancybox, lightboxSelector);
-        });
-      } catch (e) {
-      }
-    } else if ($ && hasJQueryPlugin($, "fancybox")) {
-      try {
-        ($(root).find ? $(root).find(lightboxSelector) : $(root.querySelectorAll(lightboxSelector))).fancybox({
-          openEffect: "fade",
-          closeEffect: "fade",
-          prevEffect: "none",
-          nextEffect: "none",
-          closeBtn: true
-        });
-      } catch (e) {
-      }
+        window.Fancybox.bind(lightboxSelector, {});
+      } catch (e) { /* keep the links working as plain links */ }
     } else {
-      root.querySelectorAll(lightboxSelector).forEach((trigger) => listen(trigger, "click", (event) => {
-        var _a2;
+      let viewer = null;
+      const closeViewer = () => {
+        if (viewer) viewer.remove();
+        viewer = null;
+      };
+      on(lightboxSelector, "click", (event, trigger) => {
         const image = trigger.querySelector("img");
-        const source = trigger.getAttribute("href") || (image == null ? void 0 : image.currentSrc) || (image == null ? void 0 : image.src);
+        const source = trigger.getAttribute("href") || (image && (image.currentSrc || image.src));
         if (!source || source === "#") return;
         event.preventDefault();
-        closeNativeLightbox();
-        nativeLightbox = documentRef.createElement("div");
-        nativeLightbox.setAttribute("role", "dialog");
-        nativeLightbox.setAttribute("aria-modal", "true");
-        nativeLightbox.className = "reference-native-lightbox";
-        nativeLightbox.style.cssText = "position:fixed;inset:0;z-index:2147483647;background:rgba(0,0,0,.86);display:flex;align-items:center;justify-content:center;padding:24px;cursor:zoom-out;";
-        nativeLightbox.innerHTML = '<button type="button" aria-label="Close" style="position:absolute;right:18px;top:12px;border:0;background:transparent;color:#fff;font-size:32px;line-height:1;cursor:pointer">\xD7</button><img alt="" style="max-width:100%;max-height:100%;object-fit:contain;cursor:default">';
-        const enlarged = nativeLightbox.querySelector("img");
-        if (enlarged) {
-          enlarged.src = source;
-          enlarged.alt = (image == null ? void 0 : image.alt) || trigger.getAttribute("title") || "";
-          enlarged.addEventListener("click", (clickEvent) => clickEvent.stopPropagation());
-        }
-        nativeLightbox.addEventListener("click", closeNativeLightbox);
-        (_a2 = nativeLightbox.querySelector("button")) == null ? void 0 : _a2.addEventListener("click", closeNativeLightbox);
-        documentRef.body.appendChild(nativeLightbox);
-      }));
-      listen(documentRef, "keydown", (event) => {
-        if (event.key === "Escape") closeNativeLightbox();
+        closeViewer();
+        viewer = document.createElement("div");
+        viewer.setAttribute("role", "dialog");
+        viewer.setAttribute("aria-modal", "true");
+        viewer.className = "reference-native-lightbox";
+        viewer.style.cssText = "position:fixed;inset:0;z-index:2147483647;background:rgba(0,0,0,.86);display:flex;align-items:center;justify-content:center;padding:24px;cursor:zoom-out;";
+        viewer.innerHTML = '<button type="button" aria-label="Close" style="position:absolute;right:18px;top:12px;border:0;background:transparent;color:#fff;font-size:32px;line-height:1;cursor:pointer">\xD7</button><img alt="" style="max-width:100%;max-height:100%;object-fit:contain;cursor:default">';
+        const enlarged = viewer.querySelector("img");
+        enlarged.src = source;
+        enlarged.alt = (image && image.alt) || trigger.getAttribute("title") || "";
+        enlarged.addEventListener("click", (clickEvent) => clickEvent.stopPropagation());
+        viewer.addEventListener("click", closeViewer);   // the close button is inside, so this covers it too
+        body.appendChild(viewer);
       });
-      cleanups.push(closeNativeLightbox);
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeViewer();
+      });
     }
-    const counters = Array.from(root.querySelectorAll(".counter[data-target]"));
-    const formatCounter = (value) => {
-      const separator = ","; // English site: 1,000
-      return Math.floor(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, separator);
-    };
+
+    // Counters that count up when they come into view (<span class="counter" data-target="1000">).
+    const counters = Array.from(document.querySelectorAll(".counter[data-target]"));
+    const targetOf = (counter) => parseInt((counter.getAttribute("data-target") || "0").replace(/[,.]/g, ""), 10);
+    const formatCounter = (value) => Math.floor(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");   // 1,000
     const animateCounter = (counter) => {
       if (counter.dataset.animating === "true") return;
-      const target = parseInt((counter.getAttribute("data-target") || "0").replace(/[,.]/g, ""), 10);
+      const target = targetOf(counter);
       if (!Number.isFinite(target)) return;
       counter.dataset.animating = "true";
       const start = Date.now();
       const step = () => {
         const progress = Math.min(1, (Date.now() - start) / 1800);
         counter.textContent = formatCounter(target * progress);
-        if (progress < 1) {
-          const id = win.requestAnimationFrame(step);
-          timers.add(id);
-        } else {
-          counter.textContent = formatCounter(target);
-          counter.dataset.animating = "false";
-        }
+        if (progress < 1) window.requestAnimationFrame(step);
+        else counter.dataset.animating = "false";
       };
-      if (typeof win.requestAnimationFrame === "function") win.requestAnimationFrame(step);
-      else {
-        counter.textContent = formatCounter(target);
-        counter.dataset.animating = "false";
-      }
+      window.requestAnimationFrame(step);
     };
-    const resetCounter = (counter) => {
-      counter.dataset.animating = "false";
-      counter.textContent = "0";
-    };
-    if ("IntersectionObserver" in win && counters.length) {
+    if ("IntersectionObserver" in window && counters.length) {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-          const counter = entry.target;
-          if (entry.isIntersecting) animateCounter(counter);
-          else resetCounter(counter);
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+          } else {
+            entry.target.dataset.animating = "false";
+            entry.target.textContent = "0";
+          }
         });
       }, { threshold: 0.15 });
       counters.forEach((counter) => observer.observe(counter));
-      observers.push(observer);
     } else {
       counters.forEach((counter) => {
-        const target = parseInt((counter.getAttribute("data-target") || "0").replace(/[,.]/g, ""), 10);
+        const target = targetOf(counter);
         if (Number.isFinite(target)) counter.textContent = formatCounter(target);
       });
     }
-    return () => {
-      cleanups.splice(0).forEach((cleanup) => {
-        try {
-          cleanup();
-        } catch (e) {
-        }
-      });
-      observers.splice(0).forEach((observer) => observer.disconnect());
-      timers.forEach((id) => {
-        var _a2;
-        win.clearTimeout(id);
-        (_a2 = win.cancelAnimationFrame) == null ? void 0 : _a2.call(win, id);
-      });
-      timers.clear();
-      jqInstances.forEach(({ element, kind, $: vendor }) => {
-        var _a2;
-        try {
-          vendor(element).trigger("destroy.owl.carousel");
-        } catch (e) {
-        }
-      });
-      swipers.splice(0).forEach((swiper) => {
-        var _a2;
-        try {
-          (_a2 = swiper.destroy) == null ? void 0 : _a2.call(swiper, true, true);
-        } catch (e) {
-        }
-      });
-      nativeLightbox == null ? void 0 : nativeLightbox.remove();
-      nativeLightbox = null;
-      body == null ? void 0 : body.classList.remove("open");
-    };
   }
 
-  // client/src/standalone.ts
-  var config = window;
-  var pages = config.SEICO_PAGES || [];
-  function pageUrl(path) {
-    const [pathname, query] = path.split("?");
-    const match = pages.find((page) => page.path === path) || pages.find((page) => page.path === pathname);
-    return match ? match.href + (query ? `?${query}` : "") : void 0;
-  }
+  // ---- Site search (magnifier in the menu): searches the page titles listed in PART 1 -----
+  const normalizeText = (text) => text.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  const searchPages = (window.SEICO_PAGES || []).map((page) => Object.assign({ key: normalizeText(page.title) }, page));
   function closeSearch() {
-    var _a2;
-    (_a2 = document.querySelector(".static-search")) == null ? void 0 : _a2.remove();
+    const overlay = document.querySelector(".static-search");
+    if (overlay) overlay.remove();
   }
-  function search() {
+  function openSearch() {
     closeSearch();
     const overlay = document.createElement("div");
     overlay.className = "static-search";
     overlay.style.cssText = "position:fixed;inset:0;z-index:999999;background:rgba(24, 70, 112,.75);display:flex;justify-content:center;align-items:flex-start;padding:12vh 20px 25px";
     overlay.innerHTML = '<div role="dialog" aria-modal="true" aria-label="Search" style="background:white;width:700px;max-width:100%;max-height:76vh;overflow:auto;padding:30px"><button type="button" aria-label="Close" style="float:right;font-size:28px;border:0;background:none">\xD7</button><h2 style="font-size:22px;color:#2672b0;margin-top:0">SEARCH</h2><input placeholder="Search..." aria-label="Search pages" style="height:45px;border:1px solid #ddd;padding:10px;width:100%;font-size:16px"><div class="static-search-results" style="margin-top:20px"></div></div>';
-    const dialog = overlay.firstElementChild;
     overlay.addEventListener("click", closeSearch);
-    dialog.addEventListener("click", (event) => event.stopPropagation());
+    overlay.firstElementChild.addEventListener("click", (event) => event.stopPropagation());
     overlay.querySelector("button").addEventListener("click", closeSearch);
     const input = overlay.querySelector("input");
     const results = overlay.querySelector(".static-search-results");
-    const normalize = (text) => text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/gi, "d").toLowerCase();
     input.addEventListener("input", () => {
       results.replaceChildren();
-      if (!input.value.trim()) return;
-      const matches = pages.filter((page) => normalize(page.title).includes(normalize(input.value))).slice(0, 25);
+      const query = normalizeText(input.value.trim());
+      if (!query) return;
+      const matches = searchPages.filter((page) => page.key.includes(query)).slice(0, 25);
       matches.forEach((page) => {
         const anchor = document.createElement("a");
         anchor.href = page.href;
@@ -1096,9 +842,8 @@
   // The visitor fills in first name, last name, email and (optional) phone, then the popup shows
   // the three company profiles (PROFILES below) to download. Filling it in once is enough: the
   // next time, and after the project details form, the popup opens straight on the downloads.
-  // NO BACKEND YET: nothing is sent while PROFILE_ENDPOINT is empty. Once it is set, the form
-  // is sent by POST in the background with these fields: firstname, lastname, email,
-  // phone_number, id_document, link_document, send_infor_document.
+  // Sending: done by assets/js/google-forms.js (the shared "Leads" Google Form, entry "leads"),
+  // which also has the spam trap. Nothing is sent until that entry's address is filled in.
   function setupProfilePopup() {
     // The three company profiles offered after the form (files in assets/downloads/, made smaller
     // and with private details blurred on 2026-11-13; the originals are in company-profile/).
@@ -1110,11 +855,7 @@
       { id: "seico", name: "SEICO Group", size: "12.6 MB", file: "assets/downloads/seico-group-company-profile.pdf",
         text: "The manufacturer: factories, quality management, design and production capacity, and projects in Vietnam and abroad (2023 edition)." }
     ];
-    // Leave empty until there is somewhere to send the details (for example a Google Form's
-    // formResponse address with matching field names). Nothing is sent while it is empty.
-    const PROFILE_ENDPOINT = "";
-    // Shared with the project details form: details given in either one unlock both.
-    const DETAILS_KEY = "pebProjectDetailsGiven";
+    // "Details already given" is shared with the project details form (detailsGiven, at the top of PART 2).
     const triggers = document.querySelectorAll(".dowload-profile:not([data-link])");
     const $ = window.jQuery;
     if (!triggers.length || !$ || !$.fn || !$.fn.modal) return;
@@ -1130,11 +871,11 @@
           <form method="post" action="" name="profileForm" data-native-form novalidate>
             <div class="form-group clearfix">
               <div class="col-md-6 profile-name-field">
-                <label for="profile-first-name">First Name</label>
+                <label for="profile-first-name">First Name<span>*</span></label>
                 <input type="text" class="form-control" id="profile-first-name" placeholder="First name ..." name="firstname" autocomplete="given-name" required>
               </div>
               <div class="col-md-6 profile-name-field">
-                <label for="profile-last-name">Last Name</label>
+                <label for="profile-last-name">Last Name<span>*</span></label>
                 <input type="text" class="form-control" id="profile-last-name" placeholder="Last name ..." name="lastname" autocomplete="family-name" required>
               </div>
               <input type="hidden" name="id_document" value="729">
@@ -1151,11 +892,15 @@
                 <input type="tel" name="phone_number" class="form-control" placeholder="Enter your phone number ..." id="profile-phone" autocomplete="off">
               </div>
             </div>
+            <div class="checkbox profile-consent">
+              <label for="profile-consent"><input type="checkbox" id="profile-consent" name="consent" value="yes" required> I agree that PEB Philippines may contact me about my project, as described in the <a href="${siteRoot}shared/privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a>.<span>*</span></label>
+            </div>
+            <p class="profile-consent-error" role="alert"></p>
             <div class="text-center">
               <button name="sbm-contact" type="submit">Send information</button>
             </div>
           </form>
-          </div>
+          </div>${confirmPanel("profile-confirm-title")}
           <div class="profile-step-downloads" hidden>
             <h3 id="profile-downloads-title" tabindex="-1">Company profiles</h3>
             <p class="profile-intro">Thank you. Download the profiles you would like to read.</p>
@@ -1179,12 +924,22 @@
     const phone = modal.querySelector("#profile-phone");
     const stepForm = modal.querySelector(".profile-step-form");
     const stepDownloads = modal.querySelector(".profile-step-downloads");
-    const detailsGiven = () => { try { return window.localStorage.getItem(DETAILS_KEY) === "yes"; } catch (e) { return false; } };
-    const rememberDetails = () => { try { window.localStorage.setItem(DETAILS_KEY, "yes"); } catch (e) { /* storage blocked: ask again next time */ } };
-    function showStep(downloads) {
-      stepForm.hidden = downloads;
-      stepDownloads.hidden = !downloads;
-      modal.setAttribute("aria-labelledby", downloads ? "profile-downloads-title" : "profile-popup-title");
+    const consent = modal.querySelector("#profile-consent");
+    const consentError = modal.querySelector(".profile-consent-error");
+    const CONSENT_MESSAGE = "Please tick the box so we may contact you.";
+    consent.addEventListener("change", () => {
+      if (!consent.checked) return;
+      consent.removeAttribute("aria-invalid");
+      consentError.textContent = "";
+    });
+    const stepConfirm = modal.querySelector(".popup-confirm");
+    let cancelConfirm = () => {};
+    // step: "form", "confirm" (thank you, filled in by showConfirm) or "downloads"
+    function showStep(step) {
+      stepForm.hidden = step !== "form";
+      stepConfirm.hidden = step !== "confirm";
+      stepDownloads.hidden = step !== "downloads";
+      modal.setAttribute("aria-labelledby", { form: "profile-popup-title", confirm: "profile-confirm-title", downloads: "profile-downloads-title" }[step]);
     }
 
     // The country code picker loads the first time the popup opens.
@@ -1194,6 +949,13 @@
     function loadPhonePicker() {
       if (loadPhonePicker.started) return;
       loadPhonePicker.started = true;
+      // Its stylesheet loads with it, only for visitors who open this popup (not on every page).
+      if (!document.querySelector('link[href$="intl-tel-input.css"]')) {
+        const style = document.createElement("link");
+        style.rel = "stylesheet";
+        style.href = `${siteRoot}vendor/css/intl-tel-input.css`;
+        document.head.appendChild(style);
+      }
       const script = document.createElement("script");
       script.src = `${siteRoot}vendor/js/intl-tel-input-17.0.8.min.js`;
       script.onload = () => {
@@ -1209,7 +971,7 @@
     function openPopup(event) {
       event.preventDefault();
       const skip = detailsGiven();   // details already given (here or in the project details form)
-      showStep(skip);
+      showStep(skip ? "downloads" : "form");
       if (!skip) loadPhonePicker();
       $(modal).modal("show");
     }
@@ -1222,27 +984,31 @@
     $(modal).on("shown.bs.modal", () => (stepDownloads.hidden ? modal.querySelector("#profile-first-name") : stepDownloads.querySelector("h3")).focus());
     form.addEventListener("submit", (event) => {
       event.preventDefault();
-      // A phone field holding only the dial code counts as blank.
-      const phoneBlank = picker && isOnlyDialCode();
       let firstInvalid = null;
       form.querySelectorAll("input[required]").forEach((field) => {
         const value = field.value.trim();
-        const invalid = !value || (field.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value));
+        // The consent box must be ticked (its value is always "yes", so check "checked").
+        const invalid = field.type === "checkbox" ? !field.checked : (!value || (field.type === "email" && !isEmail(value)));
         field.setAttribute("aria-invalid", String(invalid));
         if (invalid && !firstInvalid) firstInvalid = field;
       });
+      consentError.textContent = consent.checked ? "" : CONSENT_MESSAGE;
       if (firstInvalid) { firstInvalid.focus(); return; }
-      if (PROFILE_ENDPOINT) {
-        const data = new FormData(form);
-        if (phoneBlank) data.set("phone_number", "");
-        // Sent in the background; the downloads show straight away either way.
-        fetch(PROFILE_ENDPOINT, { method: "POST", mode: "no-cors", body: new URLSearchParams(data) }).catch(() => {});
-      }
+      // Sent to Google Forms in the background (google-forms.js; a phone box holding only the
+      // country code counts as blank there). A short "thank you" shows, then the downloads.
+      if (window.PEBGoogleForms && window.PEBGoogleForms.handles(form)) window.PEBGoogleForms.sendQuietly(form);
       rememberDetails();
-      showStep(true);
-      stepDownloads.querySelector("h3").focus();
+      const name = firstName(form.elements.firstname.value);
+      showStep("confirm");
+      cancelConfirm = showConfirm(stepConfirm, name ? `Thank you, ${name}!` : "Thank you!",
+        "Your details have been received. Your company profiles are ready to download.", "Show the downloads", () => {
+          showStep("downloads");
+          playIn(stepDownloads);
+          stepDownloads.querySelector("h3").focus();
+        });
     });
     $(modal).on("hidden.bs.modal", () => {
+      cancelConfirm();   // closed during the "thank you": next time it opens on the downloads
       form.reset();
       if (picker) {
         picker.setCountry("ph");
@@ -1250,6 +1016,7 @@
       }
       modal.querySelectorAll("[data-replica-form-note]").forEach((note) => note.remove());
       modal.querySelectorAll("[aria-invalid]").forEach((field) => field.removeAttribute("aria-invalid"));
+      consentError.textContent = "";
     });
   }
   setupProfilePopup();
@@ -1259,17 +1026,18 @@
   // chosen). Choice groups marked data-required need an answer. Plans: instead of a file upload
   // (a Google Form can't take files from another website), the visitor pastes share links to
   // their plans (Google Drive, Dropbox, WeTransfer...), one per line; each line must look like a link.
-  // NO BACKEND YET: nothing is sent while CONSULT_ENDPOINT is empty; a notice says so. Field
-  // names: customer_name, contact_number, email, client_type (+ client_type_other), position,
-  // decision_maker (+ _other), project_name, project_location, order_type, start_date,
-  // floor_area, import_license (+ _other), transaction_type (+ _other), estimate_type (+ _other),
-  // plans_link, peb_experience (+ _other), previous_suppliers.
+  // Sending: done by assets/js/google-forms.js (entry "consultation", which also has the spam trap
+  // and the thank-you message). Until that entry has its Google Form address, a notice says the
+  // form is not connected yet. Field names: customer_name, contact_number, email, client_type
+  // (+ client_type_other), position, decision_maker (+ _other), project_name, project_location,
+  // order_type, start_date, floor_area, import_license (+ _other), transaction_type (+ _other),
+  // estimate_type (+ _other), plans_link, peb_experience (+ _other), previous_suppliers.
   function setupConsultationForm() {
     const form = document.querySelector("form#consultation-request");   // (the Home page has a section with id="consultation")
     if (!form) return;
-    const CONSULT_ENDPOINT = "";
     const errorBox = form.querySelector(".hx-consult-error");
     const plansLink = form.querySelector('[name="plans_link"]');
+    const showError = (show) => { if (errorBox) errorBox.hidden = !show; };
     const looksLikeLinks = (text) => text.split(/\n+/).map((line) => line.trim()).filter(Boolean)
       .every((line) => /^(https?:\/\/)?[^\s/]+\.[^\s]{2,}$/i.test(line));
 
@@ -1290,6 +1058,12 @@
       if (event.target.getAttribute("aria-invalid") === "true") event.target.removeAttribute("aria-invalid");
     });
 
+    // After a successful send google-forms.js clears the form: switch the "Other:" boxes off again.
+    form.addEventListener("reset", () => setTimeout(() => {
+      form.querySelectorAll('.hx-choice-other input[type="text"]').forEach((other) => { other.disabled = true; other.required = false; });
+      form.querySelectorAll("[aria-invalid]").forEach((element) => element.removeAttribute("aria-invalid"));
+    }, 0));
+
     form.addEventListener("submit", (event) => {
       event.preventDefault();
       let firstInvalid = null;
@@ -1297,23 +1071,26 @@
       form.querySelectorAll("input[required]:not([disabled]), textarea[required]").forEach((field) => {
         const value = field.value.trim();
         let bad = !value;
-        if (!bad && field.type === "email") bad = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-        if (!bad && field.type === "tel") { const digits = value.replace(/\D/g, ""); bad = digits.length < 7 || digits.length > 15; }
+        if (!bad && field.type === "email") bad = !isEmail(value);
+        if (!bad && field.type === "tel") bad = !isPhone(value);
         if (bad) flag(field); else field.removeAttribute("aria-invalid");
       });
       form.querySelectorAll(".hx-choice[data-required]").forEach((group) => {
         if (!group.querySelector('input[type="radio"]:checked')) flag(group, group.querySelector('input[type="radio"]'));
       });
-      if (plansLink.value.trim() && !looksLikeLinks(plansLink.value)) flag(plansLink); else plansLink.removeAttribute("aria-invalid");
+      if (plansLink) {
+        if (plansLink.value.trim() && !looksLikeLinks(plansLink.value)) flag(plansLink); else plansLink.removeAttribute("aria-invalid");
+      }
       if (firstInvalid) {
-        errorBox.hidden = false;
+        showError(true);
         firstInvalid.focus();
         return;
       }
-      errorBox.hidden = true;
-      if (CONSULT_ENDPOINT) {
-        const data = new FormData(form);
-        fetch(CONSULT_ENDPOINT, { method: "POST", mode: "no-cors", body: new URLSearchParams(data) }).catch(() => {});
+      showError(false);
+      // Connected: google-forms.js sends it and shows the result under the form.
+      if (window.PEBGoogleForms && window.PEBGoogleForms.handles(form)) {
+        window.PEBGoogleForms.send(form);
+        return;
       }
       let note = form.querySelector("[data-replica-form-note]");
       if (!note) {
@@ -1322,9 +1099,7 @@
         note.setAttribute("role", "status");
         form.appendChild(note);
       }
-      note.textContent = CONSULT_ENDPOINT
-        ? "Thank you. Your consultation request has been sent. Our team will get in touch with you."
-        : "This is a front-end form template. Connect your own backend or email service to receive submissions. No information has been sent.";
+      note.textContent = "This form is not connected yet. No information has been sent; please call 0917-832-0004 or email inquiry@pebphilippines.com.";
     });
   }
   setupConsultationForm();
@@ -1333,29 +1108,20 @@
   //    items and the country flags on the Projects page), then continues to seico.vn;
   //  - from "See all ... projects" buttons ([data-lead-gate] with data-lead-target="#list-id",
   //    drawn by assets/js/ph-projects.js), then shows the hidden list on the page.
-  // It asks for full name, email and mobile number (all required) and the visitor's consent. Once a browser has filled it in, nothing asks again: the seico.vn links go
-  // straight through and every "See all" list opens by itself (ASK_ONCE, remembered with STORAGE_KEY).
+  // It asks for full name and email (required), mobile number (optional) and the visitor's consent. Once a browser has filled it in, nothing asks again: the seico.vn links go
+  // straight through and every "See all" list opens by itself (ASK_ONCE; remembered with detailsGiven).
   //
-  // NO BACKEND YET: nothing is sent. To collect the details later (for example a Google Form or
-  // your own server), set LEADS_ENDPOINT below. The form is then sent by POST as form data with
-  // these fields: fullname, email, phone, consent, source, country, destination.
-  // The visitor carries on when the server replies, or after 5 seconds even if it fails.
+  // Sending: done by assets/js/google-forms.js (the shared "Leads" Google Form, entry "leads"),
+  // which also has the spam trap. Nothing is sent until that entry's address is filled in.
+  // The visitor carries on once the details have gone, or after 5 seconds even if it fails.
   function setupProjectLeadForm() {
-    const LEADS_ENDPOINT = "";
-    const ASK_ONCE = true;
-    const STORAGE_KEY = "pebProjectDetailsGiven";
+    const ASK_ONCE = true;   // false: ask every time (the answer is still remembered for the profile popup)
     const LINKS = 'a[href^="https://seico.vn/en/projects.htm"]';
     const GATES = "[data-lead-gate]";
     const $ = window.jQuery;
     const siteRoot = window.SEICO_ROOT || "";
 
-    const given = () => {
-      if (!ASK_ONCE) return false;
-      try { return window.localStorage.getItem(STORAGE_KEY) === "yes"; } catch (e) { return false; }
-    };
-    const remember = () => {
-      try { window.localStorage.setItem(STORAGE_KEY, "yes"); } catch (e) { /* storage blocked: ask again next time */ }
-    };
+    const given = () => ASK_ONCE && detailsGiven();
     // Shows the list a "See all" button stands for, and hides the button's box.
     const reveal = (button, focus) => {
       const target = document.querySelector(button.getAttribute("data-lead-target"));
@@ -1396,18 +1162,18 @@
               <input type="email" class="form-control" id="intl-email" name="email" placeholder="Enter your email ..." autocomplete="email" required>
             </div>
             <div class="form-group">
-              <label for="intl-phone">Mobile number<span>*</span></label>
-              <input type="tel" class="form-control" id="intl-phone" name="phone" placeholder="e.g. 0917 123 4567" autocomplete="tel" required>
+              <label for="intl-phone">Mobile number</label>
+              <input type="tel" class="form-control" id="intl-phone" name="phone" placeholder="e.g. 0917 123 4567" autocomplete="tel">
             </div>
             <div class="checkbox intl-popup-consent">
-              <label for="intl-consent"><input type="checkbox" id="intl-consent" name="consent" value="yes" required> I agree that PEB Philippines may contact me about my project, as described in the <a href="${siteRoot}shared/privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a>.</label>
+              <label for="intl-consent"><input type="checkbox" id="intl-consent" name="consent" value="yes" required> I agree that PEB Philippines may contact me about my project, as described in the <a href="${siteRoot}shared/privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a>.<span>*</span></label>
             </div>
             <p class="intl-popup-error" role="alert"></p>
             <div class="text-center">
               <button type="submit" class="intl-popup-submit">Continue to projects</button>
             </div>
           </form>
-          <p class="intl-popup-foot"></p>
+          <p class="intl-popup-foot"></p>${confirmPanel("intl-confirm-title")}
         </div>
       </div>
     </div>`;
@@ -1422,6 +1188,15 @@
     const submit = modal.querySelector(".intl-popup-submit");
     const what = modal.querySelector(".intl-popup-what");
     const foot = modal.querySelector(".intl-popup-foot");
+    const confirmBox = modal.querySelector(".popup-confirm");
+    const formView = [modal.querySelector("#intl-popup-title"), modal.querySelector("#intl-popup-text"), form, foot];
+    let cancelConfirm = () => {};
+    const showFormView = (show) => {
+      formView.forEach((element) => { element.hidden = !show; });
+      confirmBox.hidden = show;
+      modal.setAttribute("aria-labelledby", show ? "intl-popup-title" : "intl-confirm-title");
+      modal.setAttribute("aria-describedby", show ? "intl-popup-text" : "intl-confirm-title");
+    };
     const fields = [nameField, emailField, phoneField, consentField];
     let pending = null;    // { kind: "link", href } or { kind: "gate", button }
     let opener = null;
@@ -1484,6 +1259,8 @@
     $(modal).on("shown.bs.modal", () => nameField.focus());
     $(modal).on("hidden.bs.modal", () => {
       document.body.classList.remove("intl-popup-open");
+      cancelConfirm();
+      showFormView(true);
       form.reset();
       error.textContent = "";
       submit.disabled = false;
@@ -1494,12 +1271,11 @@
 
     form.addEventListener("submit", (event) => {
       event.preventDefault();
-      const digits = phoneField.value.replace(/\D/g, "");
-      const email = emailField.value.trim();
       const problems = [
         [nameField, !nameField.value.trim(), "Please enter your name."],
-        [emailField, !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email), "Please enter a valid email address."],
-        [phoneField, digits.length < 7 || digits.length > 15, "Please enter a valid mobile number."],
+        [emailField, !isEmail(emailField.value.trim()), "Please enter a valid email address."],
+        // Mobile number is optional (2026-11-20), but one that is filled in must look like a real number.
+        [phoneField, phoneField.value.trim() !== "" && !isPhone(phoneField.value.trim()), "Please enter a valid mobile number, for example 0917 832 0004."],
         [consentField, !consentField.checked, "Please tick the box so we may contact you."]
       ];
       problems.forEach(([field, bad]) => field.setAttribute("aria-invalid", String(bad)));
@@ -1511,13 +1287,21 @@
       }
       error.textContent = "";
       submit.disabled = true;
-      submit.textContent = "Please wait ...";
+      rememberDetails();
+      const job = pending;
+      // Sent in the background; the "thank you" shows at once. The popup moves on when the
+      // confirmation time is up and the details have gone (or after 5 seconds at most).
+      const sent = window.PEBGoogleForms && window.PEBGoogleForms.handles(form)
+        ? Promise.race([window.PEBGoogleForms.sendQuietly(form), new Promise((resolve) => setTimeout(resolve, 5000))])
+        : Promise.resolve();
       let done = false;
       const finish = () => {
         if (done) return;
         done = true;
-        remember();
-        const job = pending;
+        if (!job) {
+          $(modal).modal("hide");
+          return;
+        }
         if (job.kind === "link") {
           window.location.href = job.href;
           return;
@@ -1527,13 +1311,15 @@
         });
         $(modal).modal("hide");
       };
-      const endpoint = LEADS_ENDPOINT || form.getAttribute("action");
-      if (endpoint && window.fetch) {
-        window.fetch(endpoint, { method: "POST", body: new FormData(form) }).catch(() => {}).then(finish);
-        setTimeout(finish, 5000);
-      } else {
-        finish();
-      }
+      const name = firstName(nameField.value);
+      const target = what.textContent.trim();
+      const goingTo = !job ? "" : job.kind === "link"
+        ? `Taking you to ${target}${/seico\.vn/.test(target) ? "" : " on seico.vn"}…`
+        : `Opening ${target}…`;
+      showFormView(false);
+      cancelConfirm = showConfirm(confirmBox, name ? `Thank you, ${name}!` : "Thank you!",
+        `Your details have been received. ${goingTo}`.trim(), job && job.kind === "link" ? "Go to the projects" : "Show the projects",
+        () => sent.then(finish));
     });
   }
   setupProjectLeadForm();
@@ -1652,28 +1438,6 @@
   }
   setupBackToTop();
 
-  // "Share this article" buttons: always share the page the visitor is on.
-  function setupShareLinks() {
-    const links = document.querySelectorAll("a.share-item");
-    if (!links.length) return;
-    const url = encodeURIComponent(window.location.href.split("#")[0]);
-    const title = encodeURIComponent(document.title);
-    const picture = document.querySelector("main img[src]");
-    const media = picture ? encodeURIComponent(picture.src) : "";
-    const targets = {
-      zalo: `https://sp.zalo.me/share?url=${url}`,
-      facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
-      twitter: `https://twitter.com/intent/tweet?url=${url}&text=${title}`,
-      linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
-      pinterest: `https://pinterest.com/pin/create/button/?url=${url}&media=${media}&description=${title}`
-    };
-    links.forEach((link) => {
-      const kind = Object.keys(targets).find((name) => link.classList.contains(name));
-      if (kind) link.href = targets[kind];
-    });
-  }
-  setupShareLinks();
-
   // Detaching navigation bar (every page), an idea borrowed from pebphilsteel.com on 2026-11-13.
   // It works in two steps so nothing pops:
   //   1. "nav-stuck": once the top contact strip has scrolled away, the menu bar (desktop) or the
@@ -1731,7 +1495,7 @@
     window.addEventListener("scroll", () => {
       if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
     }, { passive: true });
-    window.addEventListener("resize", measure);
+    window.addEventListener("resize", oncePerFrame(measure));
     window.addEventListener("load", measure);
     measure();
     // How far a section has to stay below the top of the window so the bar doesn't cover it
@@ -1908,23 +1672,7 @@
   }
   setupVideoPlayers();
 
-  initializeReferenceInteractions(document.body, {
-    navigate: (path) => {
-      const target = pageUrl(path);
-      if (target) window.location.href = target;
-    },
-    onSearch: search,
-    contactEmail: "your-email@example.com"
-  });
-  var _a;
-  // Pages that use their address (Project Types ?type=, Contact ?project=) skip this placeholder note.
-  const handlesQuery = document.getElementById("projects-results") || document.querySelector("[data-ph-type-page]") ||
-    new URLSearchParams(window.location.search).has("project");
-  if (window.location.search && !handlesQuery) {
-    const note = document.createElement("p");
-    note.textContent = "Listing template \u2014 connect your content and filtering logic here. This front-end copy has no backend.";
-    note.style.cssText = "margin:20px auto;padding:12px 18px;max-width:1140px;background:#f3f6fa;border-left:3px solid #2672b0;color:#687b91;font-size:13px";
-    (_a = document.querySelector("main")) == null ? void 0 : _a.prepend(note);
-  }
-  console.info("Editable static website copy. Forms are templates; no backend is included.");
+  setupNetworkMap();
+  setupTableOfContents();
+  setupPageInteractions();
 })();

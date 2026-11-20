@@ -34,8 +34,14 @@
   // full photo. If a thumbnail is missing, the image falls back to the full photo.
   function thumb(path) { return url(String(path).replace(/\/([^\/]+)$/, "/thumbs/$1")); }
   function thumbImg(path, attrs) {
-    return '<img src="' + thumb(path) + '" ' + attrs + ' onerror="this.onerror=null;this.src=\'' + url(path) + '\'">';
+    return '<img src="' + thumb(path) + '" data-full="' + url(path) + '" ' + attrs + '>';
   }
+  // A missing thumbnail falls back to the full photo. One listener for the page instead of an
+  // inline onerror on every picture, which a strict Content-Security-Policy would block.
+  document.addEventListener("error", function (event) {
+    var img = event.target;
+    if (img && img.tagName === "IMG" && img.dataset.full && img.getAttribute("src") !== img.dataset.full) img.src = img.dataset.full;
+  }, true);
   function esc(text) {
     return String(text).replace(/[&<>"']/g, function (c) {
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
@@ -47,6 +53,13 @@
   function contactHref(project) { return url("contact/contact.html?project=" + encodeURIComponent(project.name) + "#message"); }
   function ofType(id) { return projects.filter(function (p) { return p.type === id; }); }
   function tons(p) { return parseFloat(String(p.steel).replace(/,/g, "")) || 0; }
+  var featuredCount = projects.filter(function (p) { return p.featured; }).length;
+
+  // Mistakes in ph-projects-data.js show up in the browser console (F12) instead of breaking a page.
+  projects.forEach(function (p, i) {
+    if (!p.name || !p.year) console.warn("ph-projects-data.js: project " + (i + 1) + " needs a name and a year.", p);
+    if (!typeById[p.type]) console.warn('ph-projects-data.js: "' + p.name + '" has an unknown type "' + p.type + '".');
+  });
 
   // Featured first, then projects with photos (newest first), then completed projects
   // (most steel first), then the rest (newest first).
@@ -57,23 +70,36 @@
     });
   }
 
+  // A project's photos as viewer links: the first shows the picture (inner); the others are hidden
+  // links (class extraClass) so the viewer can step through all of them.
+  function photoLinks(p, group, className, extraClass, inner) {
+    var caption = esc(p.name + " (" + p.year + ")");
+    var link = function (photo, cls, content) {
+      return "<a " + (cls ? 'class="' + cls + '" ' : "") + 'href="' + url(photo) + '" data-fancybox="' + group + '" data-caption="' + caption + '"' +
+        (content ? ">" + content : " hidden>") + "</a>";
+    };
+    return link(p.photos[0], className, inner) + p.photos.slice(1).map(function (photo) { return link(photo, extraClass, ""); }).join("");
+  }
+  function photoCount(p) {
+    var n = (p.photos || []).length;
+    return n > 1 ? '<span class="pj-feature-zoom"><i class="fa fa-camera" aria-hidden="true"></i>' + n + " photos</span>" : "";
+  }
+  // Facts list: rows of [label, value]; empty values are left out.
+  function factList(rows, className) {
+    return '<dl class="' + className + '">' + rows.filter(function (row) { return row[1]; }).map(function (row) {
+      return "<div><dt>" + row[0] + "</dt><dd>" + esc(row[1]) + "</dd></div>";
+    }).join("") + "</dl>";
+  }
+
   // Picture at the top of a small card; every photo of the project opens in the viewer.
   function cardMedia(p) {
-    var photos = p.photos || [];
-    if (!photos.length) {
+    if (!(p.photos || []).length) {
       // No photos yet: a tinted block with the type's icon keeps the cards in a row the same height.
       var type = typeById[p.type];
       return '<div class="pj-card-media pj-card-media--none" aria-hidden="true"><i class="fa ' + (type ? type.icon : "fa-building-o") + '"></i></div>';
     }
-    var group = "pjl-" + slug(p.name);
-    var caption = esc(p.name + " (" + p.year + ")");
-    return '<a class="pj-card-media" href="' + url(photos[0]) + '" data-fancybox="' + group + '" data-caption="' + caption + '">' +
-      thumbImg(photos[0], 'alt="' + esc(p.name + ", " + place(p)) + '" loading="lazy"') +
-      (photos.length > 1 ? '<span class="pj-feature-zoom"><i class="fa fa-camera" aria-hidden="true"></i>' + photos.length + " photos</span>" : "") +
-      "</a>" +
-      photos.slice(1).map(function (photo) {
-        return '<a href="' + url(photo) + '" data-fancybox="' + group + '" data-caption="' + caption + '" hidden></a>';
-      }).join("");
+    return photoLinks(p, "pjl-" + slug(p.name), "pj-card-media", "",
+      thumbImg(p.photos[0], 'alt="' + esc(p.name + ", " + place(p)) + '" loading="lazy"') + photoCount(p));
   }
 
   function statusBadge(p) {
@@ -84,35 +110,19 @@
     var parts = [p.location, p.region].filter(Boolean);
     return parts.length ? parts.join(" · ") : "Philippines";
   }
-  function facts(p, className) {
-    var rows = [["Steel", p.steel], ["Area", p.area], ["Scope", p.scope]].filter(function (row) { return row[1]; });
-    return '<dl class="' + className + '">' + rows.map(function (row) {
-      return "<div><dt>" + row[0] + "</dt><dd>" + esc(row[1]) + "</dd></div>";
-    }).join("") + "</dl>";
-  }
 
   // ---- big card for a featured project ----
   function featureCard(p) {
     var type = typeById[p.type];
-    var photos = p.photos || [];
-    var group = "pj-" + slug(p.name);
-    var media = "";
-    if (photos.length) {
-      media = '<a class="pj-feature-media" href="' + url(photos[0]) + '" data-fancybox="' + group + '" data-caption="' + esc(p.name + " (" + p.year + ")") + '">' +
-        thumbImg(photos[0], 'alt="' + esc(p.name + ", " + place(p)) + '" width="1200" height="900" loading="lazy"') +
-        '<span class="pj-feature-year">' + p.year + "</span>" +
-        (photos.length > 1 ? '<span class="pj-feature-zoom"><i class="fa fa-camera" aria-hidden="true"></i>' + photos.length + " photos</span>" : "") +
-        "</a>" +
-        photos.slice(1).map(function (photo) {
-          return '<a class="pj-feature-more" href="' + url(photo) + '" data-fancybox="' + group + '" data-caption="' + esc(p.name + " (" + p.year + ")") + '" hidden></a>';
-        }).join("");
-    }
+    var media = (p.photos || []).length ? photoLinks(p, "pj-" + slug(p.name), "pj-feature-media", "pj-feature-more",
+      thumbImg(p.photos[0], 'alt="' + esc(p.name + ", " + place(p)) + '" width="1200" height="900" loading="lazy"') +
+      '<span class="pj-feature-year">' + p.year + "</span>" + photoCount(p)) : "";
     return '<article class="pj-feature">' + media +
       '<div class="pj-feature-body">' +
       '<p class="pj-feature-meta">' + statusBadge(p) + (type ? '<a class="pj-type-tag" href="' + typeHref(type.id) + '">' + esc(type.name) + "</a>" : "") + "</p>" +
       '<h3 class="pj-feature-title">' + esc(p.name) + "</h3>" +
       '<p class="pj-feature-loc"><i class="fa fa-map-marker" aria-hidden="true"></i>' + esc(place(p)) + "</p>" +
-      facts(p, "pj-feature-facts") +
+      factList([["Steel", p.steel], ["Area", p.area], ["Scope", p.scope]], "pj-feature-facts") +
       '<a class="hx-link pj-similar" href="' + contactHref(p) + '">Build something like this <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>' +
       "</div></article>";
   }
@@ -125,9 +135,7 @@
       '<h4 class="ph-card-title">' + esc(p.name) + "</h4>" +
       '<p class="ph-card-loc"><i class="fa fa-map-marker" aria-hidden="true"></i>' + esc(place(p)) + "</p>" +
       (showType && type ? '<p class="pj-card-type"><a href="' + typeHref(type.id) + '">' + esc(type.name) + "</a></p>" : "") +
-      '<dl class="ph-card-facts">' + [["Year", p.year], ["Scope", p.scope], ["Steel", p.steel], ["Area", p.area]].filter(function (row) { return row[1]; }).map(function (row) {
-        return "<div><dt>" + row[0] + "</dt><dd>" + esc(row[1]) + "</dd></div>";
-      }).join("") + "</dl>" +
+      factList([["Year", p.year], ["Scope", p.scope], ["Steel", p.steel], ["Area", p.area]], "ph-card-facts") +
       '<a class="pj-card-similar" href="' + contactHref(p) + '">Ask about a similar building <i class="fa fa-angle-right" aria-hidden="true"></i></a>' +
       "</article>";
   }
@@ -168,7 +176,6 @@
   var steelLabel = steelTotal.toLocaleString("en-US") + "+";
   document.querySelectorAll("[data-ph-count]").forEach(function (node) {
     var what = node.getAttribute("data-ph-count");
-    var featuredCount = projects.filter(function (p) { return p.featured; }).length;
     node.textContent = { listed: projects.length, more: projects.length - featuredCount, total: data.totalProjects, types: data.types.length, steel: steelLabel }[what];
   });
   // Animated counters (home page): <span class="counter" data-ph-target="steel|total">.
@@ -190,7 +197,6 @@
     var years = [];
     projects.forEach(function (p) { if (years.indexOf(p.year) < 0) years.push(p.year); });
     years.sort(function (a, b) { return b - a; });
-    var featuredCount = projects.filter(function (p) { return p.featured; }).length;
     var chips = data.types.map(function (t) {
       return "<li>" + esc(t.name) + " <span>" + ofType(t.id).length + "</span></li>";
     }).join("");
@@ -209,7 +215,7 @@
     var type = typeById[id];
     var hero = document.querySelector(".hx-pagehero");
     if (!type) {
-      node.innerHTML = '<div class="hx-head"><div class="hx-head-main"><p class="hx-eyebrow"><span>01</span>Browse</p><h2 class="hx-title">Choose a project type</h2></div>' +
+      node.innerHTML = '<div class="hx-head"><div class="hx-head-main"><h2 class="hx-title">Choose a project type</h2></div>' +
         '<div class="hx-head-side"><p>Our Philippine projects grouped by what the building is for.</p></div></div>' + typeTiles();
       return;
     }
@@ -233,7 +239,7 @@
       }
     }
 
-    node.innerHTML = '<div class="hx-head"><div class="hx-head-main"><p class="hx-eyebrow"><span>01</span>' + esc(type.name) + '</p><h2 class="hx-title">' + plural(list.length, "project") + " in the Philippines</h2></div>" +
+    node.innerHTML = '<div class="hx-head"><div class="hx-head-main"><h2 class="hx-title">' + plural(list.length, "project") + " in the Philippines</h2></div>" +
       '<div class="hx-head-side"><p>' + esc(type.text) + "</p></div></div>" +
       // Every project uses the same card in one grid. The locked ones sit in #type-rest inside the same
       // grid (display: contents once shown), so unlocking fills the rows instead of starting new ones.
