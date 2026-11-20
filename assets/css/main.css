@@ -6429,6 +6429,40 @@ html {
   gap: 24px;
 }
 
+/* Five featured projects (2026-11-20): the two newest share the first row, the other three
+   sit below. A 6-column grid: cards take 2 columns, the first two take 3 when there are 5+. */
+@media (min-width: 992px) {
+  .hx .pj-features:not(.pj-features--inline) {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .hx .pj-features:not(.pj-features--inline) > .pj-feature {
+    grid-column: span 2;
+  }
+
+  .hx .pj-features:not(.pj-features--inline) > .pj-feature:nth-child(-n + 2):nth-last-child(n + 4) {
+    grid-column: span 3;
+  }
+
+  .hx .pj-features:not(.pj-features--inline) > .pj-feature:nth-child(-n + 2):nth-last-child(n + 4) .pj-feature-media {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* Two per row on tablets: a last card on its own row lies wide, picture beside the text. */
+@media (min-width: 768px) and (max-width: 991px) {
+  .hx .pj-features:not(.pj-features--inline) > .pj-feature:last-child:nth-child(odd) {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  }
+
+  .hx .pj-features:not(.pj-features--inline) > .pj-feature:last-child:nth-child(odd) .pj-feature-media {
+    aspect-ratio: auto;
+    min-height: 100%;
+  }
+}
+
 .hx .pj-feature {
   display: flex;
   flex-direction: column;
@@ -7289,60 +7323,114 @@ ul.follow li a.follow-soon {
   font-size: 12px;
 }
 
-/* phones: each row becomes a small card */
+/* A tall photo whose file is narrower than the article column (e.g. the arched steel structure on
+   Steel structure applications, 667 px): shown at most 560 px wide so it is never stretched. */
+.hx .hx-figure--narrow {
+  max-width: 560px;
+}
+
+/* A single product shot (e.g. the SP Fireshield can on Industrial paint): kept small. */
+.hx .hx-figure--product {
+  max-width: 300px;
+}
+
+/* Phones (2026-11-20, second version): each topic is its own card: a tinted title bar, then the
+   two answers side by side, each with its own small label right above it ("Pre-engineered" in
+   a dark blue pill on a blue-tinted cell, "Conventional" in a gray pill on white), so the reader
+   never has to look back up to a header row. The table keeps its meaning for screen readers
+   through the role attributes in the HTML. */
 @media (max-width: 767px) {
   .hx .hx-compare-table,
-  .hx .hx-compare-table tbody,
-  .hx .hx-compare-table tr,
+  .hx .hx-compare-table tbody {
+    display: block;
+  }
+
+  .hx .hx-compare-table {
+    border: 0;
+    background: transparent;
+    font-size: 14px;
+  }
+
+  .hx .hx-compare-table thead {
+    display: none;   /* the labels are in every cell instead */
+  }
+
+  .hx .hx-compare-table tbody tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    margin-bottom: 12px;
+    border: 1px solid var(--hx-line);
+    background: #ffffff;
+  }
+
+  .hx .hx-compare-table tbody tr:last-child {
+    margin-bottom: 0;
+  }
+
   .hx .hx-compare-table th,
   .hx .hx-compare-table td {
     display: block;
     width: auto;
-  }
-
-  .hx .hx-compare-table thead {
-    display: none;
-  }
-
-  .hx .hx-compare-table tbody tr {
-    border-bottom: 1px solid var(--hx-line);
+    border-bottom: 0;
   }
 
   .hx .hx-compare-table tbody th {
-    padding: 14px 16px 6px;
-    border: 0;
+    grid-column: 1 / -1;
+    width: auto;
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--hx-line);
+    background: #f1f5fa;
+    color: var(--hx-navy);
+    font-size: 15px;
     white-space: normal;
   }
 
+  .hx .hx-compare-table tbody tr:last-child th {
+    border-bottom: 1px solid var(--hx-line);
+  }
+
+  .hx .hx-compare-table tbody th .fa {
+    width: 18px;
+    margin-right: 8px;
+  }
+
   .hx .hx-compare-table td {
-    padding: 6px 16px;
-    border: 0;
+    padding: 12px 14px 14px;
+    color: #475569;
+    line-height: 1.45;
   }
 
-  .hx .hx-compare-table td:last-child {
-    padding-bottom: 14px;
+  .hx .hx-compare-table td.is-peb {
+    border-right: 1px solid var(--hx-line);
+    background: #eaf3fb;
+    color: #14263b;
+    font-weight: 600;
   }
 
+  .hx .hx-compare-table td.is-peb .fa {
+    margin-right: 6px;
+  }
+
+  /* the column name, right above each answer */
   .hx .hx-compare-table td::before {
     content: attr(data-label);
     display: block;
-    margin-bottom: 2px;
-    color: var(--hx-muted);
+    width: fit-content;
+    max-width: 100%;
+    white-space: nowrap;
+    margin-bottom: 8px;
+    padding: 2px 9px;
+    border-radius: 10px;
+    background: #e3e8ef;
+    color: #334155;
     font-size: 11px;
     font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    line-height: 1.5;
   }
 
   .hx .hx-compare-table td.is-peb::before {
-    color: var(--hx-blue);
-  }
-}
-
-@media (max-width: 767px) {
-  .hx .hx-compare-table tbody th,
-  .hx .hx-compare-table tbody td {
-    width: auto;
+    background: var(--hx-navy);
+    color: #ffffff;
   }
 }
 
